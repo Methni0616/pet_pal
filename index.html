@@ -3,38 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🐾 Pet Pal Advanced</title>
+  <title>Pet Pal 🐾</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>🐾 Pet Pal</h1>
-      <button id="themeToggle">🌙 Dark Mode</button>
-    </header>
+    <h1>🐾 Pet Pal</h1>
+    <form id="petForm">
+      <input type="text" id="petName" placeholder="Pet Name" required />
+      <input type="text" id="petType" placeholder="Pet Type (e.g. Dog, Cat)" required />
+      <input type="number" id="petAge" placeholder="Age" required />
+      <input type="date" id="petVaccination" placeholder="Next Vaccination Date" required />
+      <button type="submit">Add Pet</button>
+    </form>
 
-    <section class="form-section">
-      <h2>Add New Pet</h2>
-      <form id="petForm">
-        <input type="text" id="petName" placeholder="Pet Name" required />
-        <input type="text" id="petType" placeholder="Pet Type (Dog, Cat...)" required />
-        <input type="number" id="petAge" placeholder="Age" required />
-        <input type="date" id="petVaccination" required />
-        <button type="submit">➕ Add Pet</button>
-      </form>
-    </section>
-
-    <section class="search-section">
-      <input type="text" id="searchInput" placeholder="🔍 Search pets..." />
-    </section>
-
-    <section class="list-section">
-      <h2>My Pets</h2>
-      <div id="petList" class="pet-list"></div>
-    </section>
+    <h2>My Pets</h2>
+    <ul id="petList"></ul>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
