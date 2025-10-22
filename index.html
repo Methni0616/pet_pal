@@ -7,23 +7,70 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🐾 Pet Pal</h1>
-      <button id="themeToggle">🌞 Light Mode</button>
-    </header>
+  <header>
+    <h1>🐾 Pet Pal</h1>
+    <button id="themeToggle">🌞 Light Mode</button>
+  </header>
 
-    <form id="petForm">
-      <input type="text" id="petName" placeholder="Pet Name" required />
-      <input type="text" id="petType" placeholder="Pet Type (e.g. Dog, Cat)" required />
-      <input type="number" id="petAge" placeholder="Age" required />
-      <input type="date" id="petVaccination" placeholder="Next Vaccination Date" required />
-      <button type="submit">Add Pet</button>
-    </form>
+  <!-- Navigation Tabs -->
+  <nav>
+    <button class="tab-btn active" data-tab="profile">🐶 Pet Profiles</button>
+    <button class="tab-btn" data-tab="reminders">🕒 Reminders</button>
+    <button class="tab-btn" data-tab="health">💊 Health Tracker</button>
+    <button class="tab-btn" data-tab="schedule">📅 Daily Schedule</button>
+  </nav>
 
-    <h2>My Pets</h2>
-    <ul id="petList"></ul>
-  </div>
+  <main>
+    <!-- 🐶 Pet Profiles -->
+    <section id="profile" class="tab-content active">
+      <h2>Pet Profiles</h2>
+      <form id="petForm">
+        <input type="text" id="petName" placeholder="Pet Name" required />
+        <input type="number" id="petAge" placeholder="Age" required />
+        <input type="text" id="petBreed" placeholder="Breed" required />
+        <textarea id="medicalHistory" placeholder="Medical History"></textarea>
+        <input type="date" id="vaccinationDate" placeholder="Next Vaccination" />
+        <button type="submit">Add Pet</button>
+      </form>
+      <ul id="petList"></ul>
+    </section>
+
+    <!-- 🕒 Reminders -->
+    <section id="reminders" class="tab-content">
+      <h2>Reminders</h2>
+      <form id="reminderForm">
+        <input type="text" id="reminderTitle" placeholder="Reminder Title" required />
+        <input type="date" id="reminderDate" required />
+        <button type="submit">Add Reminder</button>
+      </form>
+      <ul id="reminderList"></ul>
+    </section>
+
+    <!-- 💊 Health Tracker -->
+    <section id="health" class="tab-content">
+      <h2>Health Tracker</h2>
+      <form id="healthForm">
+        <input type="text" id="healthPet" placeholder="Pet Name" required />
+        <input type="number" id="weight" placeholder="Weight (kg)" required />
+        <input type="text" id="diet" placeholder="Diet Details" />
+        <input type="text" id="medication" placeholder="Medication" />
+        <textarea id="symptoms" placeholder="Symptoms / Mood Notes"></textarea>
+        <button type="submit">Add Health Record</button>
+      </form>
+      <ul id="healthList"></ul>
+    </section>
+
+    <!-- 📅 Daily Schedule -->
+    <section id="schedule" class="tab-content">
+      <h2>Daily Schedule</h2>
+      <form id="scheduleForm">
+        <input type="text" id="activity" placeholder="Activity (e.g. Walk, Meal)" required />
+        <input type="time" id="time" required />
+        <button type="submit">Add Schedule</button>
+      </form>
+      <ul id="scheduleList"></ul>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
