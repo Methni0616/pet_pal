@@ -1,3 +1,4 @@
+// Handle form submission
 document.getElementById("petForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -16,6 +17,31 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
 
   petList.appendChild(li);
 
-  // Clear form
   document.getElementById("petForm").reset();
+});
+
+// 🌗 Theme Toggle Feature
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  themeToggle.textContent = "🌙 Dark Mode";
+} else {
+  themeToggle.textContent = "🌞 Light Mode";
+}
+
+// Toggle theme on click
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    themeToggle.textContent = "🌙 Dark Mode";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.textContent = "🌞 Light Mode";
+    localStorage.setItem("theme", "light");
+  }
 });
