@@ -102,6 +102,15 @@
 .hero-btn {
   flex: 1 1 200px; /* Grow/shrink with screen */
   max-width: 250px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  text-align: center;
 }
 
 
@@ -188,5 +197,33 @@
   .feature-card { padding: 1.5rem; }
 }
 
+@media (max-width: 1024px) {
+  .hero-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    max-width: 220px;
+  }
+}
 
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column; /* stack vertically */
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .hero-btn {
+    flex: 1 1 90%; /* almost full width */
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-btn {
+    flex: 1 1 100%; /* full width on small phones */
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
 
