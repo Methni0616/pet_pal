@@ -40,7 +40,7 @@ export default function Home() {
             onClick={() => navigate("/adopt")}
             className="hero-btn adopt-btn"
           >
-            🐶 Adopt a Pet
+             Adopt a Pet
           </button>
           <button
             onClick={() => navigate("/care")}
