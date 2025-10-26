@@ -27,7 +27,7 @@
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #ec4899;
+  color: #d56c25;
 }
 
 .nav-buttons {
@@ -46,7 +46,7 @@
 
 .login-btn {
   background: transparent;
-  color: #ec4899;
+  color: #d56c25;
 }
 
 .login-btn:hover {
