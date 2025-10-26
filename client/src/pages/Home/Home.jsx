@@ -52,7 +52,7 @@ export default function Home() {
             onClick={() => navigate("/services")}
             className="hero-btn services-btn"
           >
-            🏪 Find Services
+            Find Services
           </button>
         </div>
       </section>
