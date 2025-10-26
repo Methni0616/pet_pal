@@ -72,7 +72,6 @@
   padding: 4rem 2rem;
 }
 
-
 .hero-title {  
   font-size: 4rem;
   font-weight: 800;
@@ -143,6 +142,7 @@
   border-radius: 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
+  background-color: white;
 }
 
 .feature-card:hover {
@@ -150,7 +150,7 @@
 }
 
 .feature-card img {
-  width: 80px;
+  width: 280px;
   margin-bottom: 1rem;
 }
 
@@ -226,4 +226,8 @@
     padding: 0.6rem 1rem;
   }
 }
-
+@media (max-width: 768px) {
+  .feature-img {
+    width: 60%;
+  }
+}
