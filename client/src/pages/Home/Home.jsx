@@ -40,13 +40,13 @@ export default function Home() {
             onClick={() => navigate("/adopt")}
             className="hero-btn adopt-btn"
           >
-             Adopt a Pet
+            Adopt a Pet
           </button>
           <button
             onClick={() => navigate("/care")}
             className="hero-btn care-btn"
           >
-            🩺 Care for My Pet
+            Care for My Pet
           </button>
           <button
             onClick={() => navigate("/services")}
