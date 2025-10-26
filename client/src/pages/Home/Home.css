@@ -50,16 +50,16 @@
 }
 
 .login-btn:hover {
-  color: #db2777;
+  color: #9f4203;
 }
 
 .get-started-btn {
-  background-color: #ec4899;
+  background-color: #ec8f48;
   color: white;
 }
 
 .get-started-btn:hover {
-  background-color: #db2777;
+  background-color: #db6027;
 }
 
 /* Hero Section - Fullscreen */
