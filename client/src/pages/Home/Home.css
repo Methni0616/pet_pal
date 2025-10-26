@@ -119,13 +119,13 @@
 }
 
 /* Hero button colors */
-.adopt-btn { background-color: #ec4899; }
+.adopt-btn { background-color: #ec8f48; }
 .adopt-btn:hover { background-color: #db2777; }
 
-.care-btn { background-color: #22c55e; }
+.care-btn { background-color: #ec8f48; }
 .care-btn:hover { background-color: #16a34a; }
 
-.services-btn { background-color: #3b82f6; }
+.services-btn { background-color: #ec8f48; }
 .services-btn:hover { background-color: #1d4ed8; }
 
 /* Features Section */
