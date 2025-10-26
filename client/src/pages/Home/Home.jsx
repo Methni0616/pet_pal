@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import adoptImg from "../../assets/adopt.jpg";
+
 
 export default function Home() {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="features-section">
         <div className="feature-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Adopt" />
+           <img src={adoptImg} alt="Adopt" width="120" />
           <h3>Adopt a Pet</h3>
           <p>Find your perfect furry friend from nearby shelters and give them a loving home.</p>
         </div>
