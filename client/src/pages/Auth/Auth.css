@@ -1,17 +1,16 @@
 
 
-
+/* Full page background and centering */
 .auth-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;      /* full width */
-  height: 100vh;     /* full height */
-  min-height: 100vh; /* fallback for some browsers */
- background: linear-gradient(to bottom, #fff7f0, #ffffff);
-  overflow: hidden;  /* prevent scrollbars from partial background */
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fff7f0, #ffffff);
+  overflow: hidden;
 }
-
 
 /* Card container */
 .auth-card {
@@ -48,20 +47,32 @@
   gap: 1rem;
 }
 
+/* Input styling - always white, autofill-safe */
 .auth-form input {
   width: 100%;
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: 1px solid #ddd;
+  background-color: #fff !important; /* Always white */
+  color: #333;                       /* Text color */
   transition: border 0.2s ease, background-color 0.2s ease;
-  background-color: #fff; /* Force white background */
-  color: #333;            /* Text color */
 }
 
-
+/* Focus state */
 .auth-form input:focus {
   border-color: #ec8f48;
   outline: none;
+  background-color: #fff !important;
+}
+
+/* Chrome autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: #333 !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Button */
