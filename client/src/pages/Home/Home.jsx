@@ -27,6 +27,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
+      
       <section className="hero-section">
         <h2 className="hero-title">
           Welcome to <span className="highlight">Pet Pal</span> 🐾
@@ -36,6 +37,7 @@ export default function Home() {
           trusted pet services.
         </p>
         <div className="hero-buttons">
+          
           <button
             onClick={() => navigate("/adopt")}
             className="hero-btn adopt-btn"
@@ -54,9 +56,22 @@ export default function Home() {
           >
             Find Services
           </button>
+
+          
+          <button
+            onClick={() => navigate("/favorites")}
+            className="hero-btn favorites-btn"
+          >
+            Favorites
+          </button>
+          <button
+            onClick={() => navigate("/my-adoptions")}
+            className="hero-btn my-adoptions-btn"
+          >
+            My Adoptions
+          </button>
         </div>
       </section>
-
 
       {/* Features Section */}
       <section className="features-section">
