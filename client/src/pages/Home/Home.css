@@ -96,8 +96,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  width: 100%;  /* Full width */
+  width: 100%; /* Full width */
 }
+
 .hero-btn {
   flex: 1 1 200px; /* Grow/shrink with screen */
   max-width: 250px;
@@ -110,22 +111,16 @@
   transition: all 0.2s ease;
   color: white;
   text-align: center;
-}
 
+  /* Set all hero buttons to the same color */
+  background-color: #ec8f48;
+}
 
 .hero-btn:hover {
   transform: scale(1.05);
+  background-color: #db6027; /* Hover color for all buttons */
 }
 
-/* Hero button colors */
-.adopt-btn { background-color: #ec8f48; }
-.adopt-btn:hover { background-color: #db6027; }
-
-.care-btn { background-color: #ec8f48; }
-.care-btn:hover { background-color: #db6027; }
-
-.services-btn { background-color: #ec8f48; }
-.services-btn:hover { background-color: #db6027; }
 
 /* Features Section */
 .features-section {
