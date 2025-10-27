@@ -60,7 +60,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="features-section">
         <div className="feature-card">
-          <img src="/images/adopt.jpg" alt="Adopt" className="feature-img" />
+          <img src="https://www.adoptapet.gov.mt/wp-content/uploads/2023/02/banner-cat-dop-1-e1675789209106.jpg" alt="Adopt" className="feature-img" />
           <h3>Adopt a Pet</h3>
           <p>
             Find your perfect furry friend from nearby shelters and give them a
