@@ -57,10 +57,15 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Features Section */}
       <section className="features-section">
         <div className="feature-card">
-          <img src="https://www.adoptapet.gov.mt/wp-content/uploads/2023/02/banner-cat-dop-1-e1675789209106.jpg" alt="Adopt" className="feature-img" />
+          <img
+            src="https://www.adoptapet.gov.mt/wp-content/uploads/2023/02/banner-cat-dop-1-e1675789209106.jpg"
+            alt="Adopt"
+            className="feature-img"
+          />
           <h3>Adopt a Pet</h3>
           <p>
             Find your perfect furry friend from nearby shelters and give them a
@@ -93,7 +98,22 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="footer">
-        © {new Date().getFullYear()} Pet Pal. Made with 💖 by Methni.
+        <p>© {new Date().getFullYear()} Pet Pal. Made with 💖 by Methni.</p>
+        <div className="footer-links">
+          <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a> |
+          <a href="#">Terms</a>
+        </div>
+        <div className="social-icons">
+          <a href="#">
+            <i className="fab fa-facebook"></i>
+          </a>
+          <a href="#">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i className="fab fa-twitter"></i>
+          </a>
+        </div>
       </footer>
     </div>
   );
