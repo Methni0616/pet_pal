@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; // Optional
+import "./Auth.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -10,44 +10,56 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add registration logic here
     console.log("Name:", name, "Email:", email, "Password:", password);
-    navigate("/login"); // Redirect to Login after registration
+    navigate("/login"); // Redirect after successful registration
   };
 
   return (
-    <div className="auth-container">
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit} className="auth-form">
-        <input
-          type="text"
-          placeholder="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Register</button>
-      </form>
-      <p>
-        Already have an account?{" "}
-        <span onClick={() => navigate("/login")} className="auth-link">
-          Login
-        </span>
-      </p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-title">Create Account</h1>
+        <p className="auth-subtitle">
+          Join the Pet Pal family and start your journey 🐾
+        </p>
+
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Create Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="auth-btn">
+            Register
+          </button>
+        </form>
+
+        <p className="auth-footer">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")} className="auth-link">
+            Login
+          </span>
+        </p>
+      </div>
     </div>
   );
 }
+
