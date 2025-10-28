@@ -1,0 +1,78 @@
+.pet-listings-page {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(to bottom, #fff7f0, #ffffff);
+  min-height: 100vh;
+}
+
+.pet-listings-title {
+  font-size: 2rem;
+  color: #ec8f48;
+  margin-bottom: 2rem;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.pet-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pet-image {
+  width: 100%;
+  height: 160px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.pet-info {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.view-btn {
+  background-color: #ec8f48;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.view-btn:hover {
+  background-color: #db6027;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .pet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .pet-card {
+    width: 180px;
+  }
+
+  .pet-image {
+    height: 130px;
+  }
+}
