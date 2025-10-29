@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./PetListings.css"; // You can create this file for styling
+import "./PetListings.css";
 
 export default function PetListings() {
   const navigate = useNavigate();
 
   const pets = [
-    { id: 1, name: "Bella", species: "Dog", breed: "Golden Retriever", age: "2 years", image: "https://images.unsplash.com/photo-1507149833265-60c372daea22" },
-    { id: 2, name: "Max", species: "Cat", breed: "Siamese", age: "1.5 years", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131" },
-    { id: 3, name: "Luna", species: "Dog", breed: "Beagle", age: "3 years", image: "https://images.unsplash.com/photo-1507149833265-60c372daea22" },
-    { id: 4, name: "Charlie", species: "Rabbit", breed: "Netherland Dwarf", age: "8 months", image: "https://images.unsplash.com/photo-1612817159949-1e4e4e31d68a" },
+    { id: 1, name: "Bella", species: "Dog", breed: "Golden Retriever", age: "2 years", image: "https://th.bing.com/th/id/R.21f3fa210de6e87d1714d32d8214b6f8?rik=N3BDYlK2y6Au5Q&pid=ImgRaw&r=0" },
+    { id: 2, name: "Max", species: "Cat", breed: "Siamese", age: "1.5 years", image: "https://spotpet.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fm5ehn3s5t7ec%2Fwp-image-198369%2Fb3a545e5bbb2a5bf3141ca4be6cb10d7%2FSiamese-Cat-Breed-Guide-.jpg&w=1200&q=75" },
+    { id: 3, name: "Luna", species: "Dog", breed: "Beagle", age: "3 years", image: "https://th.bing.com/th/id/R.b5a89bcbee8bf091b646997c8d7c4378?rik=JiQgQJXu9XHSmQ&pid=ImgRaw&r=0" },
+    { id: 4, name: "Charlie", species: "Rabbit", breed: "Netherland Dwarf", age: "8 months", image: "https://image.petmd.com/files/styles/863x625/public/2023-08/netherland.dwarf_.jpg" },
     { id: 5, name: "Milo", species: "Cat", breed: "Maine Coon", age: "2.5 years", image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6" },
     { id: 6, name: "Coco", species: "Dog", breed: "Poodle", age: "4 years", image: "https://images.unsplash.com/photo-1557970877-1b1f4e0b84a6" },
     { id: 7, name: "Nibbles", species: "Hamster", breed: "Syrian", age: "6 months", image: "https://images.unsplash.com/photo-1583337130417-3346a1af0b9e" },
