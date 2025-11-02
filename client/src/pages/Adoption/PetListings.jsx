@@ -17,7 +17,7 @@ export default function PetListings() {
     { id: 9, name: "Rocky", species: "Dog", breed: "German Shepherd", age: "5 years", image: "https://images.unsplash.com/photo-1558788353-f76d92427f16" },
     { id: 10, name: "Oliver", species: "Cat", breed: "Bengal", age: "2 years", image: "https://tse1.mm.bing.net/th/id/OIP.zq-Fem02l2uLcQBgmel2kwHaFO?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 11, name: "Buddy", species: "Dog", breed: "Labrador Retriever", age: "3.5 years", image: "https://www.itl.cat/pngfile/big/111-1118405_labrador-retriever-dog-hd-wallpapers-labrador-dog.jpg" },
-    { id: 12, name: "Chirpy", species: "Bird", breed: "Parakeet", age: "10 months", image: "https://tse4.mm.bing.net/th/id/OIP.ohhfN_O6WMFKZ4gGUzGVHgHaID?rs=1&pid=ImgDetMain&o=7&rm=3" },
+    { id: 12, name: "Chirpy", species: "Bird", breed: "Parakeet", age: "10 months", image: "https://tse1.mm.bing.net/th/id/OIP.Gn607i1fZf7Q2fORzs0sQAHaEy?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 13, name: "Hazel", species: "Rabbit", breed: "Lionhead", age: "1.2 years", image: "https://images.unsplash.com/photo-1574158622682-e40e69881006" },
     { id: 14, name: "Pumpkin", species: "Cat", breed: "Persian", age: "4 years", image: "https://images.unsplash.com/photo-1574158622682-e0a2949d1b3c" },
     { id: 15, name: "Ziggy", species: "Dog", breed: "Husky", age: "2.8 years", image: "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" },
