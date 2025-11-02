@@ -15,7 +15,7 @@ export default function PetListings() {
     { id: 7, name: "Nibbles", species: "Hamster", breed: "Syrian", age: "6 months", image: "https://tse3.mm.bing.net/th/id/OIP.1JVCKgoh5p54HpjiEegyewHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 8, name: "Snowy", species: "Bird", breed: "Cockatoo", age: "1 year", image: "https://th.bing.com/th/id/R.70d673bfd32d2a3d439e64fe05d3f4af?rik=QMWamVGYQCbwAQ&pid=ImgRaw&r=0" },
     { id: 9, name: "Rocky", species: "Dog", breed: "German Shepherd", age: "5 years", image: "https://images.unsplash.com/photo-1558788353-f76d92427f16" },
-    { id: 10, name: "Oliver", species: "Cat", breed: "Bengal", age: "2 years", image: "https://images.unsplash.com/photo-1595433707802-6b2626ef1c9a" },
+    { id: 10, name: "Oliver", species: "Cat", breed: "Bengal", age: "2 years", image: "https://tse1.mm.bing.net/th/id/OIP.zq-Fem02l2uLcQBgmel2kwHaFO?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 11, name: "Buddy", species: "Dog", breed: "Labrador Retriever", age: "3.5 years", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a" },
     { id: 12, name: "Chirpy", species: "Bird", breed: "Parakeet", age: "10 months", image: "https://images.unsplash.com/photo-1587653915931-1e39a97b9a96" },
     { id: 13, name: "Hazel", species: "Rabbit", breed: "Lionhead", age: "1.2 years", image: "https://images.unsplash.com/photo-1574158622682-e40e69881006" },
