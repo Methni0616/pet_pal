@@ -1,0 +1,134 @@
+.pet-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom right, #fff7f0, #ffffff);
+  min-height: 100vh;
+}
+
+.pet-details-card {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.pet-details-card:hover {
+  transform: scale(1.02);
+}
+
+.pet-details-image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-details-info {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pet-details-info h1 {
+  color: #ec8f48;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.pet-details-info p {
+  margin: 0.4rem 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.pet-details-description {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+.pet-details-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.adopt-btn {
+  background-color: #ec8f48;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.adopt-btn:hover {
+  background-color: #db6027;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #ddd;
+}
+
+/* 404 Not Found Styling */
+.not-found {
+  text-align: center;
+  padding: 4rem;
+}
+
+.not-found h2 {
+  color: #ec8f48;
+}
+
+.not-found button {
+  background: #ec8f48;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pet-details-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pet-details-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .pet-details-info {
+    padding: 1.5rem;
+  }
+
+  .pet-details-buttons {
+    flex-direction: column;
+  }
+}
