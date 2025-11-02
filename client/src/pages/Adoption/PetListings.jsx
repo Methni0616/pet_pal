@@ -14,6 +14,18 @@ export default function PetListings() {
     { id: 6, name: "Coco", species: "Dog", breed: "Poodle", age: "4 years", image: "https://tse4.mm.bing.net/th/id/OIP.thyo26eqrj7cvAEBfzhZ7QHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 7, name: "Nibbles", species: "Hamster", breed: "Syrian", age: "6 months", image: "https://tse3.mm.bing.net/th/id/OIP.1JVCKgoh5p54HpjiEegyewHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 8, name: "Snowy", species: "Bird", breed: "Cockatoo", age: "1 year", image: "https://th.bing.com/th/id/R.70d673bfd32d2a3d439e64fe05d3f4af?rik=QMWamVGYQCbwAQ&pid=ImgRaw&r=0" },
+    { id: 9, name: "Rocky", species: "Dog", breed: "German Shepherd", age: "5 years", image: "https://images.unsplash.com/photo-1558788353-f76d92427f16" },
+    { id: 10, name: "Oliver", species: "Cat", breed: "Bengal", age: "2 years", image: "https://images.unsplash.com/photo-1595433707802-6b2626ef1c9a" },
+    { id: 11, name: "Buddy", species: "Dog", breed: "Labrador Retriever", age: "3.5 years", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a" },
+    { id: 12, name: "Chirpy", species: "Bird", breed: "Parakeet", age: "10 months", image: "https://images.unsplash.com/photo-1587653915931-1e39a97b9a96" },
+    { id: 13, name: "Hazel", species: "Rabbit", breed: "Lionhead", age: "1.2 years", image: "https://images.unsplash.com/photo-1574158622682-e40e69881006" },
+    { id: 14, name: "Pumpkin", species: "Cat", breed: "Persian", age: "4 years", image: "https://images.unsplash.com/photo-1574158622682-e0a2949d1b3c" },
+    { id: 15, name: "Ziggy", species: "Dog", breed: "Husky", age: "2.8 years", image: "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" },
+    { id: 16, name: "Peanut", species: "Hamster", breed: "Dwarf", age: "5 months", image: "https://images.unsplash.com/photo-1611095973511-9f3a07f4a858" },
+    { id: 17, name: "Kiwi", species: "Bird", breed: "Lovebird", age: "7 months", image: "https://images.unsplash.com/photo-1616511121803-992a77b90c39" },
+    { id: 18, name: "Toby", species: "Dog", breed: "Bulldog", age: "4.5 years", image: "https://images.unsplash.com/photo-1558788353-5e7e9cbe4c8e" },
+    { id: 19, name: "Misty", species: "Cat", breed: "Ragdoll", age: "2 years", image: "https://images.unsplash.com/photo-1618826411640-7de6d1b6b36f" },
+    { id: 20, name: "Bubbles", species: "Fish", breed: "Betta", age: "1 year", image: "https://images.unsplash.com/photo-1599152203071-d1d10dcb54c9" }
   ];
 
   return (
