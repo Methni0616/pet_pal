@@ -25,7 +25,7 @@ export default function PetListings() {
     { id: 17, name: "Kiwi", species: "Bird", breed: "Lovebird", age: "7 months", image: "https://th.bing.com/th/id/R.4279467d574d1638ce281f8c7f1e1ae2?rik=NJU4JGGy62eKEw&pid=ImgRaw&r=0" },
     { id: 18, name: "Toby", species: "Dog", breed: "Bulldog", age: "4.5 years", image: "https://th.bing.com/th/id/R.104d62b8aae9000dd82e4eccd42b63fd?rik=kZxa1JKjksYFYQ&pid=ImgRaw&r=0" },
     { id: 19, name: "Misty", species: "Cat", breed: "Ragdoll", age: "2 years", image: "https://th.bing.com/th/id/R.583a94499579b1adfeed9d28dc05eb75?rik=QUPo9taKXZzucw&pid=ImgRaw&r=0" },
-    { id: 20, name: "Bubbles", species: "Fish", breed: "Betta", age: "1 year", image: "https://images.unsplash.com/photo-1599152203071-d1d10dcb54c9" }
+    { id: 20, name: "Bubbles", species: "Fish", breed: "Betta", age: "1 year", image: "https://tse1.mm.bing.net/th/id/OIP.aV6t735oWVwTf3FpRdy_3QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" }
   ];
 
   return (
