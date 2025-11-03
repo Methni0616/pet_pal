@@ -66,13 +66,15 @@
 
 .adoption-form input,
 .adoption-form textarea {
-  width: 100%;
-  padding: 0.8rem;
+  background-color: #fff4ec; /* light orange tone */
+  color: #333; /* text color */
+  border: 1px solid #ffb788;
   border-radius: 0.5rem;
-  border: 1px solid #ddd;
+  padding: 0.8rem;
   font-size: 1rem;
   resize: none;
 }
+
 
 .adoption-form input:focus,
 .adoption-form textarea:focus {
