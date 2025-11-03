@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./AdoptionForm.css";
+import styles from "./AdoptionForm.module.css";
 
 export default function AdoptionForm() {
   const { id } = useParams();
@@ -21,7 +21,7 @@ export default function AdoptionForm() {
   const pet = pets.find((p) => p.id === parseInt(id));
 
   if (!pet) {
-    return <h2 className="not-found">Pet not found 🐾</h2>;
+    return <h2 className={styles.notFound}>Pet not found 🐾</h2>;
   }
 
   const handleSubmit = (e) => {
@@ -30,21 +30,21 @@ export default function AdoptionForm() {
   };
 
   return (
-    <div className="adoption-container">
-      <div className="pet-info">
-        <img src={pet.image} alt={pet.name} className="pet-image" />
-        <div className="pet-details">
+    <div className={styles.adoptionContainer}>
+      <div className={styles.petInfo}>
+        <img src={pet.image} alt={pet.name} className={styles.petImage} />
+        <div className={styles.petDetails}>
           <h2>{pet.name}</h2>
           <p><strong>Species:</strong> {pet.species}</p>
           <p><strong>Breed:</strong> {pet.breed}</p>
           <p><strong>Age:</strong> {pet.age}</p>
           {pet.vaccinations && <p><strong>Vaccinations:</strong> {pet.vaccinations}</p>}
           {pet.shelter && <p><strong>Shelter:</strong> {pet.shelter}</p>}
-          {pet.description && <p className="pet-desc">{pet.description}</p>}
+          {pet.description && <p className={styles.petDesc}>{pet.description}</p>}
         </div>
       </div>
 
-      <form className="adoption-form" onSubmit={handleSubmit}>
+      <form className={styles.adoptionForm} onSubmit={handleSubmit}>
         <h3>Adopt {pet.name}</h3>
         <input type="text" placeholder="Your Full Name" required />
         <input type="email" placeholder="Your Email Address" required />
@@ -55,4 +55,3 @@ export default function AdoptionForm() {
     </div>
   );
 }
-
