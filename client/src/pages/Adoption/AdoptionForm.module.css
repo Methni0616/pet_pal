@@ -88,10 +88,10 @@
   width: 100%;
   transition: all 0.3s ease;
   font-family: "Poppins", sans-serif;
-  background-color: #fff; /* soft peach */
+  background-color: #fff; 
 }
 
-/* 🎨 Textarea color changed here */
+
 .adoptionForm textarea {
   background-color: #fff; /* soft peach */
   color: #333;
