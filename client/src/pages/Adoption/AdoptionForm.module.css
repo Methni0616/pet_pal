@@ -99,7 +99,7 @@
   min-height: 100px;
 }
 
-/* 🌟 Focus Effect */
+
 .adoptionForm input:focus,
 .adoptionForm textarea:focus {
   outline: none;
