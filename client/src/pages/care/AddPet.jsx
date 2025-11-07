@@ -1,8 +1,11 @@
+// src/pages/care/AddPet.jsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddPet.css";
 
 export default function AddPet() {
   const [pet, setPet] = useState({ name: "", breed: "", age: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setPet({ ...pet, [e.target.name]: e.target.value });
@@ -10,12 +13,13 @@ export default function AddPet() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`✅ Pet "${pet.name}" added successfully!`);
+    // Pass the new pet to MyPets page
+    navigate("/care", { state: { newPet: pet } });
   };
 
   return (
     <div className="addpet-container">
-      <h2>Add a New Pet</h2>
+      <h2>➕ Add a New Pet</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
