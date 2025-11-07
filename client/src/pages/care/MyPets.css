@@ -10,7 +10,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .care-buttons button {
@@ -26,4 +26,27 @@
 
 .care-buttons button:hover {
   background-color: #ff6f00;
+}
+
+.pets-list {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pet-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 220px;
+  text-align: left;
+  color: #161616;
+}
+
+.no-pets {
+  color: gray;
+  margin-top: 2rem;
 }
