@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100vw; /* Full viewwith */
+  width: 100vw; /* Full viewith */
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, #fff7f0, #ffffff);
