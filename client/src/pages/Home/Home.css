@@ -65,7 +65,7 @@
 /* Hero Section - Fullscreen */
 .hero-section,
 .features-section {
-  width: 100%;  /* ul*/
+  width: 100%;  /* u*/
   max-width: 100%;  /* Remove any ax-idt */
   margin: 0 auto;
   box-sizing: border-box;
