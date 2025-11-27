@@ -1,0 +1,98 @@
+.health-records-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fff3e6, #ffffff);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-title {
+  font-size: 2.4rem;
+  color: #d56c25;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.health-subtitle {
+  color: #666;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+/* Form wrapper */
+.health-form {
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Card style sections */
+.health-section {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.8rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  border: 1px solid #f3d3b5;
+  transition: transform 0.2s ease;
+}
+
+.health-section:hover {
+  transform: translateY(-3px);
+}
+
+.health-section h2 {
+  font-size: 1.3rem;
+  color: #d56c25;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Input fields */
+.health-input {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e5c2a3;
+  background: #fff;
+  font-size: 1rem;
+  color: #444;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.health-input:focus {
+  border-color: #ec8f48;
+  box-shadow: 0 0 5px rgba(236, 143, 72, 0.4);
+  outline: none;
+}
+
+/* Large textareas */
+.health-input textarea,
+textarea.health-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Save button */
+.health-save-btn {
+  padding: 1rem;
+  background-color: #ec8f48;
+  color: white;
+  border: none;
+  border-radius: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  max-width: 260px;
+  margin: 1rem auto 0 auto;
+  transition: 0.25s ease;
+}
+
+.health-save-btn:hover {
+  background-color: #db6027;
+  transform: scale(1.05);
+}
