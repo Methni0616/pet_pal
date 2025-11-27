@@ -1,11 +1,12 @@
 .addpet-container {
   text-align: center;
   padding: 2rem;
-  background-color: #fef6f0;
+  background-color: #fff7f1;   /* Similar soft background */
   min-height: 100vh;
   color: #3e3e3e;
 }
 
+/* Form layout */
 form {
   display: flex;
   flex-direction: column;
@@ -14,23 +15,46 @@ form {
   margin: 0 auto;
 }
 
+/* Inputs matching auth-form theme */
 input {
-  padding: 0.7rem;
+  padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  color: #000000;
+  border-radius: 0.5rem;
+  background-color: #fff !important;
+  color: #333;
+  transition: border 0.2s ease, background-color 0.2s ease;
 }
 
+/* Focus state */
+input:focus {
+  border-color: #ec8f48;
+  outline: none;
+  background-color: #fff !important;
+}
+
+/* Chrome autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: #333 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Button styled like auth-btn */
 button {
-  background-color: #ffa366;
+  padding: 0.75rem;
   border: none;
-  padding: 0.8rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  background-color: #ec8f48;
   color: white;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #ff8533;
+  background-color: #db6027;
+  transform: scale(1.05);
 }
