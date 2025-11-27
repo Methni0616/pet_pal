@@ -17,6 +17,7 @@ input {
   padding: 0.7rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+  color: #000;
 }
 
 button {
