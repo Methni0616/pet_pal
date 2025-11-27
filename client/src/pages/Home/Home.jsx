@@ -40,19 +40,19 @@ export default function Home() {
           
           <button
             onClick={() => navigate("/adopt")}
-            className="hero-btn adopt-btn"
+            className="hero-btn"
           >
             Adopt a Pet
           </button>
           <button
             onClick={() => navigate("/care")}
-            className="hero-btn care-btn"
+            className="hero-btn"
           >
             Care for My Pet
           </button>
           <button
             onClick={() => navigate("/services")}
-            className="hero-btn services-btn"
+            className="hero-btn"
           >
             Find Services
           </button>
@@ -60,13 +60,13 @@ export default function Home() {
           
           <button
             onClick={() => navigate("/favorites")}
-            className="hero-btn favorites-btn"
+            className="hero-btn"
           >
             Favorites
           </button>
           <button
             onClick={() => navigate("/my-adoptions")}
-            className="hero-btn my-adoptions-btn"
+            className="hero-btn"
           >
             My Adoptions
           </button>
