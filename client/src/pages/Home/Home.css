@@ -100,7 +100,8 @@
 }
 
 .hero-btn {
-  flex: 1 1 200px; /* Grow/shrink with screen */
+  flex: 1;
+  min-width: 220px;
   max-width: 250px;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -111,10 +112,9 @@
   transition: all 0.2s ease;
   color: white;
   text-align: center;
-
-  /* Set all hero buttons to the same color */
   background-color: #ec8f48;
 }
+
 
 .hero-btn:hover {
   transform: scale(1.05);
