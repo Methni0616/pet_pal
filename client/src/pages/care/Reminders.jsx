@@ -20,29 +20,49 @@ export default function Reminders() {
   return (
     <div className="reminders-container">
       <h1 className="title">Reminders</h1>
-      <p className="subtitle">Set reminders for meals, walks, grooming, and vet visits 🐾</p>
+      <p className="subtitle">
+        Set reminders for meals, walks, grooming, and vet visits 🐾
+      </p>
 
       <div className="card">
         <h2 className="card-title">Add a Reminder</h2>
-        <select
-          className="select-box"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-        >
-          <option value="meal">Meal</option>
-          <option value="walk">Walk</option>
-          <option value="grooming">Grooming</option>
-          <option value="vet">Vet Visit</option>
-        </select>
+        <div className="auth-form">
+          <select
+            className="select-box"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+          >
+            <option value="meal">Meal</option>
+            <option value="walk">Walk</option>
+            <option value="grooming">Grooming</option>
+            <option value="vet">Vet Visit</option>
+          </select>
 
-        <input
-          type="time"
-          className="time-input"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-        />
+          <div style={{ position: "relative" }}>
+            <input
+              type="text"
+              className="time-input"
+              placeholder="e.g., 14:30 or 2:30 PM"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+            <span
+              style={{
+                position: "absolute",
+                left: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#ec8f48",
+              }}
+            >
+              
+            </span>
+          </div>
 
-        <button onClick={addReminder} className="add-btn">Add Reminder</button>
+          <button onClick={addReminder} className="add-btn">
+            Add Reminder
+          </button>
+        </div>
       </div>
 
       <div className="card">
@@ -55,7 +75,10 @@ export default function Reminders() {
               <li key={r.id} className="reminder-item">
                 <span className="reminder-type">{r.type}</span>
                 <span>{r.time}</span>
-                <button className="delete-btn" onClick={() => deleteReminder(r.id)}>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteReminder(r.id)}
+                >
                   Delete
                 </button>
               </li>
@@ -66,4 +89,5 @@ export default function Reminders() {
     </div>
   );
 }
+
 
