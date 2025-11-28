@@ -1,0 +1,154 @@
+:root {
+  /* Light Mode Colors */
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --accent: #81ecec;
+  --bg: #f9f9ff;
+  --text: #2d3436;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+
+  /* Pet Theme Extras */
+  --paw-color: #ff7675;
+}
+
+/* Dark Mode */
+.dark-mode {
+  --primary: #a29bfe;
+  --secondary: #6c5ce7;
+  --accent: #00cec9;
+  --bg: #1e1e2e;
+  --text: #ffffff;
+  --card-bg: #2a2a3c;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --paw-color: #ff9797;
+}
+
+/* Page Container */
+.reminders-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  background-color: var(--bg);
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px var(--shadow);
+}
+
+.subtitle {
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px var(--shadow);
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-title {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Inputs */
+.select-box,
+.time-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--secondary);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* Add Button */
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.add-btn:hover {
+  opacity: 0.85;
+}
+
+/* Reminder List */
+.reminder-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reminder-item {
+  background: var(--bg);
+  padding: 1rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  border-left: 6px solid var(--paw-color);
+  box-shadow: 0px 3px 10px var(--shadow);
+}
+
+.reminder-type {
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: var(--paw-color);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #d65b5b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .reminders-container {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
