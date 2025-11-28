@@ -30,7 +30,9 @@ export default function PetGallery() {
         {photos.map((photo, index) => (
           <div key={index} className="gallery-item">
             <img src={photo} alt={`Pet ${index}`} />
-            <button className="delete-btn" onClick={() => deletePhoto(index)}>Delete</button>
+            <span className="delete-btn" onClick={() => deletePhoto(index)}>
+              &#10006;
+            </span>
           </div>
         ))}
       </div>
