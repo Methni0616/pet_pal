@@ -1,0 +1,68 @@
+/* Activity Tracker Page Styles - Auth Theme Colors */
+
+.activity-container {
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
+  background-color: #fff7f1;
+  color: #3e3e3e;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ec8f48;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ec8f48;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.activity-type {
+  font-weight: bold;
+  color: #db6027;
+  text-transform: capitalize;
+}
