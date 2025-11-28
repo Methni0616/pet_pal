@@ -20,6 +20,11 @@ import Reminders from "./pages/care/Reminders";
 import ActivityTracker from "./pages/care/ActivityTracker";
 import PetGallery from "./pages/care/PetGallery";
 
+import ServiceListings from "./pages/Services/ServiceListings";
+
+
+
+
 function App() {
   return (
     <Router>
@@ -42,6 +47,9 @@ function App() {
         <Route path="/care/reminders" element={<Reminders />} />
         <Route path="/care/activity" element={<ActivityTracker />} />
         <Route path="/care/gallery" element={<PetGallery />} />
+
+        <Route path="/services" element={<ServiceListings />} />
+
       </Routes>
     </Router>
   );
