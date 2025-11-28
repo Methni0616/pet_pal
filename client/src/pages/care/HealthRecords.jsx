@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./HealthRecords.css";
 
 export default function HealthRecords() {
   const [medicalDetails, setMedicalDetails] = useState("");
