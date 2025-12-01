@@ -133,7 +133,10 @@
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 15px;
+  background-color: white; /* Light yellow */
 }
+
+
 
 .submit-btn {
   margin-top: 10px;
