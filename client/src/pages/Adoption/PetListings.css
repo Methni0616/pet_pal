@@ -60,20 +60,43 @@
   margin: 0.5rem 0 1rem 0;
 }
 
-/* Button */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Main orange view button */
 .view-btn {
   background-color: #ec8f48;
-  color: white;
   border: none;
-  padding: 0.6rem 1rem;
+  padding: 8px 12px;
+  color: white;
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .view-btn:hover {
   background-color: #db6027;
+  transform: scale(1.05);
+}
+
+/* Add to favorites heart button */
+.fav-btn {
+  background-color: white;
+  border: 2px solid #ec8f48;
+  padding: 8px 12px;
+  color: #ec8f48;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.fav-btn:hover {
+  background-color: #fff2e6;
   transform: scale(1.05);
 }
 
