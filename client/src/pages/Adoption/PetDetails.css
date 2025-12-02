@@ -19,7 +19,7 @@ html, body {
   align-items: center;
   padding: 3rem 1rem;
   background: linear-gradient(to bottom right, #fff7f0, #ffffff);
-  min-height: 100vh; /* this ensures full height */
+  min-height: 100vh; 
 }
 
 .pet-details-card {
