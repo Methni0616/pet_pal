@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Favorites.css";
 
 export default function Favorites() {
-  const savedPets = []; // Replace with localStorage later
+  const [favorites, setFavorites] = useState([]);
+
+  // Load favorites from localStorage
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(saved);
+  }, []);
+
+  // Remove pet from favorites
+  const removeFavorite = (id) => {
+    const updated = favorites.filter((pet) => pet.id !== id);
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+  };
 
   return (
     <div className="favorites-page">
-      <h1 className="favorites-title">Your Favorite Pets ❤️</h1>
+      <h1 className="favorites-title">❤️ Your Favorite Pets</h1>
 
-      {savedPets.length === 0 ? (
+      {/* If no favorites saved */}
+      {favorites.length === 0 ? (
         <div className="favorites-empty">
           <img
             src="https://cdn-icons-png.flaticon.com/512/194/194279.png"
-            alt="No favorites"
+            alt="Empty"
             className="empty-img"
           />
-          <h2>No Favorites Yet</h2>
-          <p>Start exploring pets and tap the ❤️ icon to save them!</p>
+          <h2>No favorites yet</h2>
+          <p>Tap the ❤️ button on any pet to save it!</p>
         </div>
       ) : (
         <div className="favorites-grid">
-          {savedPets.map((pet) => (
-            <div key={pet.id} className="favorites-card">
+          {favorites.map((pet) => (
+            <div className="favorites-card" key={pet.id}>
               <img src={pet.image} alt={pet.name} className="favorites-card-img" />
+
               <h3>{pet.name}</h3>
-              <p>{pet.breed}</p>
-              <small>{pet.location}</small>
-              <button className="remove-btn">Remove</button>
+              <p className="fav-info">{pet.species} • {pet.breed}</p>
+
+              <button
+                className="remove-btn"
+                onClick={() => removeFavorite(pet.id)}
+              >
+                ❌ Remove
+              </button>
             </div>
           ))}
         </div>
