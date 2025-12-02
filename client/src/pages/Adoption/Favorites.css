@@ -54,11 +54,10 @@
 
 /* Card image */
 .favorites-card-img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 0.8rem;
-  margin-bottom: 0.6rem;
+  width: 200px;       /* fixed width */
+  height: 200px;      /* fixed height */
+  object-fit: cover;  /* keep image proportional */
+  border-radius: 10px;
 }
 
 /* Text */
