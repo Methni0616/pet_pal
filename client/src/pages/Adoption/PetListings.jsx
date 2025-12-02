@@ -5,6 +5,21 @@ import "./PetListings.css";
 export default function PetListings() {
   const navigate = useNavigate();
 
+    // Save pet to favorites in localStorage
+  const addToFavorites = (pet) => {
+    const existing = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    // Prevent duplicates
+    const alreadySaved = existing.some((item) => item.id === pet.id);
+    if (!alreadySaved) {
+      existing.push(pet);
+      localStorage.setItem("favorites", JSON.stringify(existing));
+      alert(`${pet.name} added to favorites ❤️`);
+    } else {
+      alert(`${pet.name} is already in favorites!`);
+    }
+  };
+
   const pets = [
     { id: 1, name: "Bella", species: "Dog", breed: "Golden Retriever", age: "2 years", image: "https://th.bing.com/th/id/R.21f3fa210de6e87d1714d32d8214b6f8?rik=N3BDYlK2y6Au5Q&pid=ImgRaw&r=0" },
     { id: 2, name: "Max", species: "Cat", breed: "Siamese", age: "1.5 years", image: "https://spotpet.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fm5ehn3s5t7ec%2Fwp-image-198369%2Fb3a545e5bbb2a5bf3141ca4be6cb10d7%2FSiamese-Cat-Breed-Guide-.jpg&w=1200&q=75" },
@@ -39,12 +54,21 @@ export default function PetListings() {
             <p className="pet-info">
               {pet.species} • {pet.breed} • {pet.age}
             </p>
-            <button
-              className="view-btn"
-              onClick={() => navigate(`/adopt/${pet.id}`)}
-            >
-              View Details
-            </button>
+            <div className="btn-row">
+              <button
+                className="view-btn"
+                onClick={() => navigate(`/adopt/${pet.id}`)}
+              >
+                View Details
+              </button>
+
+              <button
+                className="fav-btn"
+                onClick={() => addToFavorites(pet)}
+              >
+                ❤️ Add
+              </button>
+            </div>
           </div>
         ))}
       </div>
