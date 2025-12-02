@@ -55,7 +55,7 @@
 /* Card image */
 .favorites-card-img {
   width: 200px;       /* fixed width */
-  height: 200px;      /* fixed height */
+  height: 200px;      
   object-fit: cover;  
   border-radius: 10px;
 }
