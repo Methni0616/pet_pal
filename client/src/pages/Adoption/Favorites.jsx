@@ -2,14 +2,14 @@ import React from "react";
 import "./Favorites.css";
 
 export default function Favorites() {
-  const savedPets = []; // Later: load from localStorage or API
+  const savedPets = []; // Replace with localStorage later
 
   return (
-    <div className="favorites-container">
-      <h1 className="fav-title">Your Favorite Pets ❤️</h1>
+    <div className="favorites-page">
+      <h1 className="favorites-title">Your Favorite Pets ❤️</h1>
 
       {savedPets.length === 0 ? (
-        <div className="empty-box">
+        <div className="favorites-empty">
           <img
             src="https://cdn-icons-png.flaticon.com/512/194/194279.png"
             alt="No favorites"
@@ -19,10 +19,10 @@ export default function Favorites() {
           <p>Start exploring pets and tap the ❤️ icon to save them!</p>
         </div>
       ) : (
-        <div className="fav-grid">
+        <div className="favorites-grid">
           {savedPets.map((pet) => (
-            <div key={pet.id} className="fav-card">
-              <img src={pet.image} alt={pet.name} className="fav-card-img" />
+            <div key={pet.id} className="favorites-card">
+              <img src={pet.image} alt={pet.name} className="favorites-card-img" />
               <h3>{pet.name}</h3>
               <p>{pet.breed}</p>
               <small>{pet.location}</small>
