@@ -7,20 +7,17 @@ export default function MyAdoptions() {
   const [adoptions, setAdoptions] = useState([]);
   const [filter, setFilter] = useState("All");
 
-  // Load adoptions from localStorage
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("myAdoptions")) || [];
     setAdoptions(stored);
   }, []);
 
-  // Delete adoption request
-  const handleDelete = (petId) => {
-    const updated = adoptions.filter((a) => a.petId !== petId);
+  const handleDelete = (id) => {
+    const updated = adoptions.filter((a) => a.id !== id);
     setAdoptions(updated);
     localStorage.setItem("myAdoptions", JSON.stringify(updated));
   };
 
-  // Filtered list
   const filteredAdoptions =
     filter === "All" ? adoptions : adoptions.filter((a) => a.status === filter);
 
@@ -46,19 +43,17 @@ export default function MyAdoptions() {
       ) : (
         <div className={styles.adoptionsGrid}>
           {filteredAdoptions.map((a) => (
-            <div key={a.petId} className={styles.adoptionCard}>
+            <div key={a.id} className={styles.adoptionCard}>
               <div className={styles.cardLeft}>
                 <img
-                  src={`https://source.unsplash.com/160x160/?${a.species.toLowerCase()}`}
+                  src={a.image || `https://source.unsplash.com/160x160/?${a.species.toLowerCase()}`}
                   alt={a.petName}
                   className={styles.petImage}
                 />
                 <div>
                   <h3>{a.petName}</h3>
                   <p>{a.species}</p>
-                  <p>
-                    <strong>Date:</strong> {a.date}
-                  </p>
+                  <p><strong>Date:</strong> {a.date}</p>
                   <p>
                     <strong>Status:</strong>{" "}
                     <span
@@ -78,7 +73,7 @@ export default function MyAdoptions() {
               <div className={styles.cardRight}>
                 <button
                   className={styles.deleteBtn}
-                  onClick={() => handleDelete(a.petId)}
+                  onClick={() => handleDelete(a.id)}
                 >
                   Delete
                 </button>
