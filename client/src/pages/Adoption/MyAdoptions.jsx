@@ -27,7 +27,7 @@ export default function MyAdoptions() {
   return (
     <div className={styles.container}>
       <h1>✅ My Adoptions</h1>
-      <p>Track your adoption applications (pending, approved, completed).</p>
+      <p>Track your adoption applications .</p>
 
       <div className={styles.filterButtons}>
         {["All", "Pending", "Approved", "Completed"].map((f) => (
