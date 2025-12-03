@@ -1,0 +1,169 @@
+/* Full page background and centering */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #fff7f0, #ffffff);
+  font-family: Arial, sans-serif;
+}
+
+/* Page title and subtitle */
+h1 {
+  font-size: 28px;
+  color: #ec8f48;
+  margin-bottom: 5px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Filter buttons */
+.filterButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filterButtons button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.filterButtons button:hover {
+  background: #ddd;
+}
+
+.activeFilter {
+  background: #ec8f48;
+  color: white;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+  margin-top: 40px;
+}
+
+/* Adoption card container */
+.adoptionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Individual adoption card */
+.adoptionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.adoptionCard:hover {
+  transform: translateY(-5px);
+}
+
+/* Left side: pet image + details */
+.cardLeft {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.petImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #fff;
+}
+
+.cardLeft h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.cardLeft p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Status badge */
+.status {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: white;
+}
+
+.pending {
+  background: #f0ad4e;
+}
+
+.approved {
+  background: #5cb85c;
+}
+
+.completed {
+  background: #0275d8;
+}
+
+/* Right side: delete button */
+.cardRight button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 12px;
+  background-color: #ec8f48;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cardRight button:hover {
+  background-color: #db6027;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adoptionCard {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cardLeft {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .cardRight {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
