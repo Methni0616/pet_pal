@@ -4,7 +4,7 @@ import "./Favorites.css";
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
-  // Load favoritefrm localStorage
+  // Load favoritefrm loalStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(saved);
