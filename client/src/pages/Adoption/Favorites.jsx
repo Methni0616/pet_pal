@@ -10,7 +10,7 @@ export default function Favorites() {
     setFavorites(saved);
   }, []);
 
-  // Remove pet from fvortes
+  // Remove pet from fvotes
   const removeFavorite = (id) => {
     const updated = favorites.filter((pet) => pet.id !== id);
     setFavorites(updated);
