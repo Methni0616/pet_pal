@@ -4,7 +4,7 @@ import "./Favorites.css";
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
-  // Load favorites fr ocalStorage
+  // Load favorites r ocalStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(saved);
