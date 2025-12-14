@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ServiceListings.css";
 
 export default function ServiceListings() {
+  const navigate = useNavigate();
+
   const [services] = useState([
     {
       id: 1,
@@ -101,41 +104,6 @@ export default function ServiceListings() {
     }
   ]);
 
-  const [selectedService, setSelectedService] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // FORM FIELDS
-  const [customerName, setCustomerName] = useState("");
-  const [selectedDate, setSelectedDate] = useState("");
-  const [notes, setNotes] = useState("");
-
-  // SAVE BOOKING TO LOCAL STORAGE
-  const saveBooking = (e) => {
-    e.preventDefault();
-
-    const newBooking = {
-      serviceId: selectedService.id,
-      serviceName: selectedService.name,
-      customerName,
-      date: selectedDate,
-      notes
-    };
-
-    const existing = JSON.parse(localStorage.getItem("bookings")) || [];
-    existing.push(newBooking);
-    localStorage.setItem("bookings", JSON.stringify(existing));
-
-    alert("Booking Saved Successfully! 🎉");
-
-    // Close popup
-    setIsModalOpen(false);
-
-    // reset form
-    setCustomerName("");
-    setSelectedDate("");
-    setNotes("");
-  };
-
   return (
     <div className="service-container">
       <h1 className="title">Find Services</h1>
@@ -147,75 +115,33 @@ export default function ServiceListings() {
         {services.map((service) => (
           <div key={service.id} className="service-card">
             <div className="card-header">
-              <img src={service.img} alt={service.type} className="service-icon" />
+              <img
+                src={service.img}
+                alt={service.type}
+                className="service-icon"
+              />
               <h2 className="service-name">{service.name}</h2>
             </div>
+
             <p className="service-type">{service.type}</p>
             <p className="service-location">{service.location}</p>
+
             <p className="service-rating">
               {Array.from({ length: Math.floor(service.rating) }).map((_, i) => (
-                <span key={i} className="star">⭐</span>
-              ))} {service.rating}
+                <span key={i}>⭐</span>
+              ))}{" "}
+              {service.rating}
             </p>
 
             <button
               className="book-btn"
-              onClick={() => {
-                setSelectedService(service);
-                setIsModalOpen(true);
-              }}
+              onClick={() => navigate(`/book/${service.id}`)}
             >
               Book Now
             </button>
           </div>
         ))}
       </div>
-
-      {/* ------------------- MODAL POPUP ------------------- */}
-      {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-container popup-animate">
-          
-            <h2 className="modal-title">Book: {selectedService?.name}</h2>
-
-            <form className="modal-form" onSubmit={saveBooking}>
-              
-              <label>Your Name:</label>
-              <input 
-                type="text" 
-                value={customerName}
-                onChange={(e) => setCustomerName(e.target.value)}
-                required
-              />
-
-              <label>Preferred Date:</label>
-              <input 
-                type="date" 
-                value={selectedDate}
-                onChange={(e) => setSelectedDate(e.target.value)}
-                required
-              />
-
-              <label>Notes:</label>
-              <textarea 
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                placeholder="Write additional notes..."
-              />
-
-              <button type="submit" className="submit-btn">
-                Confirm Booking
-              </button>
-            </form>
-
-            <button className="close-btn" onClick={() => setIsModalOpen(false)}>
-              Close
-            </button>
-
-          </div>
-        </div>
-      )}
     </div>
   );
 }
-
