@@ -1,79 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import styles from "./MyAdoptions.module.css";
 
 export default function MyAdoptions() {
-  const navigate = useNavigate();
   const [adoptions, setAdoptions] = useState([]);
   const [filter, setFilter] = useState("All");
 
+  // Load adoptions from localStorage
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("myAdoptions")) || [];
-    setAdoptions(stored);
+    const storedAdoptions =
+      JSON.parse(localStorage.getItem("myAdoptions")) || [];
+    setAdoptions(storedAdoptions);
   }, []);
 
-  const handleDelete = (id) => {
-    const updated = adoptions.filter((a) => a.id !== id);
-    setAdoptions(updated);
-    localStorage.setItem("myAdoptions", JSON.stringify(updated));
+  // Delete adoption safely (by index)
+  const handleDelete = (deleteIndex) => {
+    const updatedAdoptions = adoptions.filter(
+      (_, index) => index !== deleteIndex
+    );
+
+    setAdoptions(updatedAdoptions);
+    localStorage.setItem(
+      "myAdoptions",
+      JSON.stringify(updatedAdoptions)
+    );
   };
 
+  // Filter adoptions by status
   const filteredAdoptions =
-    filter === "All" ? adoptions : adoptions.filter((a) => a.status === filter);
+    filter === "All"
+      ? adoptions
+      : adoptions.filter((adoption) => adoption.status === filter);
 
   return (
     <div className={styles.container}>
       <h1>✅ My Adoptions</h1>
       <p>Track your adoption applications.</p>
 
+      {/* Filter Buttons */}
       <div className={styles.filterButtons}>
-        {["All", "Pending", "Approved", "Completed"].map((f) => (
+        {["All", "Pending", "Approved", "Completed"].map((status) => (
           <button
-            key={f}
-            className={filter === f ? styles.activeFilter : ""}
-            onClick={() => setFilter(f)}
+            key={status}
+            className={filter === status ? styles.activeFilter : ""}
+            onClick={() => setFilter(status)}
           >
-            {f}
+            {status}
           </button>
         ))}
       </div>
 
+      {/* Adoption List */}
       {filteredAdoptions.length === 0 ? (
         <p className={styles.empty}>No adoption requests found 🐾</p>
       ) : (
         <div className={styles.adoptionsGrid}>
-          {filteredAdoptions.map((a) => (
-            <div key={a.id} className={styles.adoptionCard}>
+          {filteredAdoptions.map((adoption, index) => (
+            <div
+              key={`${adoption.petName}-${index}`}
+              className={styles.adoptionCard}
+            >
               <div className={styles.cardLeft}>
-                <img
-                  src={a.image || `https://source.unsplash.com/160x160/?${a.species.toLowerCase()}`}
-                  alt={a.petName}
-                  className={styles.petImage}
-                />
                 <div>
-                  <h3>{a.petName}</h3>
-                  <p>{a.species}</p>
-                  <p><strong>Date:</strong> {a.date}</p>
+                  <h3>{adoption.petName}</h3>
+                  <p>{adoption.species}</p>
+                  <p>
+                    <strong>Date:</strong> {adoption.date}
+                  </p>
                   <p>
                     <strong>Status:</strong>{" "}
                     <span
                       className={`${styles.status} ${
-                        a.status === "Pending"
+                        adoption.status === "Pending"
                           ? styles.pending
-                          : a.status === "Approved"
+                          : adoption.status === "Approved"
                           ? styles.approved
                           : styles.completed
                       }`}
                     >
-                      {a.status}
+                      {adoption.status}
                     </span>
                   </p>
                 </div>
               </div>
+
               <div className={styles.cardRight}>
                 <button
                   className={styles.deleteBtn}
-                  onClick={() => handleDelete(a.id)}
+                  onClick={() => handleDelete(index)}
                 >
                   Delete
                 </button>
