@@ -1,0 +1,21 @@
+.booking-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.confirm-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
