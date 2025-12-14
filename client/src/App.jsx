@@ -21,7 +21,7 @@ import ActivityTracker from "./pages/care/ActivityTracker";
 import PetGallery from "./pages/care/PetGallery";
 
 import ServiceListings from "./pages/Services/ServiceListings";
-
+import BookingPage from "./pages/Services/BookingPage";
 
 
 
@@ -49,6 +49,7 @@ function App() {
         <Route path="/care/gallery" element={<PetGallery />} />
 
         <Route path="/services" element={<ServiceListings />} />
+        <Route path="/book/:id" element={<BookingPage />} />
 
       </Routes>
     </Router>
