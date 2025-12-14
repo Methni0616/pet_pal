@@ -81,12 +81,12 @@ p {
   transform: translateY(-5px);
 }
 
-/* Left side: pet image + details */
 .cardLeft {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1rem;
 }
+
 
 .petImage {
   width: 100px;
