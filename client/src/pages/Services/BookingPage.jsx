@@ -83,4 +83,4 @@ function BookingPage() {
   );
 }
 
-export default BookingPage; // ✅ THIS LINE FIXES THE ERROR
+export default BookingPage; 
