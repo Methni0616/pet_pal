@@ -127,7 +127,7 @@ html, body {
   cursor: pointer;
 }
 
-/* Resposive*/
+/* Respoive*/
 @media (max-width: 768px) {
   .pet-details-card {
     flex-direction: column;
