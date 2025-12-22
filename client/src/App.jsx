@@ -23,7 +23,8 @@ import PetGallery from "./pages/care/PetGallery";
 import ServiceListings from "./pages/Services/ServiceListings";
 import BookingPage from "./pages/Services/BookingPage";
 
-
+import FAQ from "./pages/FAQ/FAQ";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -51,11 +52,11 @@ function App() {
         <Route path="/services" element={<ServiceListings />} />
         <Route path="/book/:id" element={<BookingPage />} />
 
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
