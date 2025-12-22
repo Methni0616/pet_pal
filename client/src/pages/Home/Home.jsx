@@ -107,11 +107,11 @@ export default function Home() {
 
           <div className="footer-links">
             <a href="/privacy-policy">Privacy Policy</a>
-            <span>•</span>
+            <span>|</span>
             <a href="/contact">Contact Us</a>
-            <span>•</span>
+            <span>|</span>
             <a href="/terms">Terms & Conditions</a>
-            <span>•</span>
+            <span>|</span>
             <a href="/faq">FAQs</a>
           </div>
 
