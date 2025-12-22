@@ -27,7 +27,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      
+
       <section className="hero-section">
         <h2 className="hero-title">
           Welcome to <span className="highlight">Pet Pal</span> 🐾
@@ -37,31 +37,17 @@ export default function Home() {
           trusted pet services.
         </p>
         <div className="hero-buttons">
-          
-          <button
-            onClick={() => navigate("/adopt")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/adopt")} className="hero-btn">
             Adopt a Pet
           </button>
-          <button
-            onClick={() => navigate("/care")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/care")} className="hero-btn">
             Care for My Pet
           </button>
-          <button
-            onClick={() => navigate("/services")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/services")} className="hero-btn">
             Find Services
           </button>
 
-          
-          <button
-            onClick={() => navigate("/favorites")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/favorites")} className="hero-btn">
             Favorites
           </button>
           <button
@@ -113,21 +99,33 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Pet Pal. Made with 💖 by Methni.</p>
-        <div className="footer-links">
-          <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a> |
-          <a href="#">Terms</a>
-        </div>
-        <div className="social-icons">
-          <a href="#">
-            <i className="fab fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
+        <div className="footer-content">
+          <p className="footer-text">
+            © {new Date().getFullYear()} <strong>Pet Pal</strong>. Made with 💖
+            by Methni.
+          </p>
+
+          <div className="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span>•</span>
+            <a href="/contact">Contact Us</a>
+            <span>•</span>
+            <a href="/terms">Terms & Conditions</a>
+            <span>•</span>
+            <a href="/faq">FAQs</a>
+          </div>
+
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">
+              <i className="fab fa-twitter"></i>
+            </a>
+          </div>
         </div>
       </footer>
     </div>
