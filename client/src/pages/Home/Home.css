@@ -168,6 +168,13 @@
   color: #777;
   font-size: 0.875rem;
 }
+.footer-links a {
+  color: #686563;        /* Pet Pal orange */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 0.5rem;
+}
+
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
