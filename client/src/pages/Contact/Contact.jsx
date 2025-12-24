@@ -55,6 +55,39 @@ export default function Contact() {
 
         <button type="submit">Send Message</button>
       </form>
+
+      {/* Social Media Section */}
+      <div className="contact-socials">
+        <p>Follow us on</p>
+        <div className="social-icons">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+          >
+            <i className="fab fa-facebook-f"></i>
+          </a>
+
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
+            <i className="fab fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://tiktok.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="TikTok"
+          >
+            <i className="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
