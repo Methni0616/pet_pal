@@ -69,6 +69,33 @@
   background-color: #db6027;
   transform: scale(1.03);
 }
+.contact-socials {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.contact-socials p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  font-size: 1.4rem;
+  color: #ec8f48;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #db6027;
+  transform: scale(1.2);
+}
 
 /* Responsive */
 @media (max-width: 768px) {
