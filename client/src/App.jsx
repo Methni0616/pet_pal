@@ -25,6 +25,9 @@ import BookingPage from "./pages/Services/BookingPage";
 
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import Terms from "./pages/Terms/Terms";
+
 
 function App() {
   return (
@@ -54,6 +57,9 @@ function App() {
 
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+<Route path="/terms" element={<Terms />} />
+
       </Routes>
     </Router>
   );
