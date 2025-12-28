@@ -11,6 +11,9 @@
 - User login (email / Google / phone)
 - User registration (adopters, pet owners, service providers)
 
+<img src="client/public/images/ss1.png" width="800" />
+
+
 ---
 
 ### 🐶 Pet Adoption Module
