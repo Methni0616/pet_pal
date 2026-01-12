@@ -40,14 +40,10 @@
 - Set reminders for vet visits, meals, walks, and grooming
 - Track pet activities and exercise
   
-<img src="client/public/images/ss9.png" width="300" /> 
-<img src="client/public/images/ss10.png" width="300" />
-<img src="client/public/images/ss11.png" width="300" /> 
-<img src="client/public/images/ss12.png" width="300" />
-<img src="client/public/images/ss13.png" width="300" /> 
-<img src="client/public/images/ss14.png" width="300" />
-<img src="client/public/images/ss15.png" width="300" /> 
-<img src="client/public/images/ss16.png" width="300" />
+<img src="client/public/images/ss9.png" width="300" /> <img src="client/public/images/ss10.png" width="300" />
+<img src="client/public/images/ss11.png" width="300" /> <img src="client/public/images/ss12.png" width="300" />
+<img src="client/public/images/ss13.png" width="300" /> <img src="client/public/images/ss14.png" width="300" />
+<img src="client/public/images/ss15.png" width="300" /> <img src="client/public/images/ss16.png" width="300" />
 
 ---
 
