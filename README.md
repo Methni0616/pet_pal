@@ -56,6 +56,9 @@
 - Contact Pet Pal support team
 
   <img src="client/public/images/ss17.png" width="500" />
+  <img src="client/public/images/ss20.png" width="300" />
+  
+
 
 ---
 
