@@ -13,12 +13,8 @@
 
 <img src="client/public/images/ss1.png" width="600" />
 <img src="client/public/images/ss2.png" width="600" />
-<img src="client/public/images/ss3.png" width="300" />
+<img src="client/public/images/ss3.png" width="300" /> 
 <img src="client/public/images/ss4.png" width="300" />
-
-
-
-
 
 
 ---
@@ -32,7 +28,7 @@
 - View shelter or organization details
 
 <img src="client/public/images/ss5.png" width="600" />
-<img src="client/public/images/ss6.png" width="300" />
+<img src="client/public/images/ss6.png" width="300" /> 
 <img src="client/public/images/ss7.png" width="300" />
 
 ---
@@ -43,6 +39,15 @@
 - Store health and vaccination records
 - Set reminders for vet visits, meals, walks, and grooming
 - Track pet activities and exercise
+  
+<img src="client/public/images/ss9.png" width="300" /> 
+<img src="client/public/images/ss10.png" width="300" />
+<img src="client/public/images/ss11.png" width="300" /> 
+<img src="client/public/images/ss12.png" width="300" />
+<img src="client/public/images/ss13.png" width="300" /> 
+<img src="client/public/images/ss14.png" width="300" />
+<img src="client/public/images/ss15.png" width="300" /> 
+<img src="client/public/images/ss16.png" width="300" />
 
 ---
 
