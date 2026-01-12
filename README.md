@@ -15,6 +15,8 @@
 <img src="client/public/images/ss2.png" width="600" />
 <img src="client/public/images/ss3.png" width="300" /> 
 <img src="client/public/images/ss4.png" width="300" />
+<img src="client/public/images/ss18.png" width="300" />
+<img src="client/public/images/ss19.png" width="300" />
 
 
 ---
@@ -52,6 +54,8 @@
 - Book service appointments
 - Access FAQs and help resources
 - Contact Pet Pal support team
+
+  <img src="client/public/images/ss17.png" width="500" />
 
 ---
 
