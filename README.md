@@ -1,6 +1,6 @@
 # 🐾 Pet Pal
 
-**Pet Pal** is a user-friendly web application designed to connect pet adopters, pet owners, shelters, and service providers on one platform. It supports pet adoption, pet care management, and access to pet-related services.
+**Pet Pal** is a user-friendly web application designed to connect pet adopters, pet owners, shelters, and service providers on a single platform. It supports pet adoption, pet care management, and access to pet-related services, while also helping homeless pets find loving homes.
 
 ---
 
@@ -63,7 +63,7 @@
 ---
 
 ## 🎯 Goal
-Pet Pal aims to simplify pet adoption, improve pet care management, and make pet services easily accessible through a single, integrated platform.
+Pet Pal aims to simplify pet adoption, improve pet care management, make pet services easily accessible, and give homeless pets a chance to find loving homes through a single, integrated platform.
 
 ---
 
