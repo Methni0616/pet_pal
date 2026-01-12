@@ -13,8 +13,8 @@
 
 <img src="client/public/images/ss1.png" width="800" />
 <img src="client/public/images/ss2.png" width="800" />
-<img src="client/public/images/ss3.png" width="800" />
-<img src="client/public/images/ss4.png" width="800" />
+<img src="client/public/images/ss3.png" width="500" />
+<img src="client/public/images/ss4.png" width="500" />
 
 
 
@@ -30,6 +30,10 @@
 - Submit adoption applications
 - Track adoption status (pending, approved, completed)
 - View shelter or organization details
+
+<img src="client/public/images/ss2.png" width="800" />
+<img src="client/public/images/ss3.png" width="500" />
+<img src="client/public/images/ss4.png" width="500" />
 
 ---
 
