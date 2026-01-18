@@ -2,6 +2,8 @@
 
 **Pet Pal** is a user-friendly web application designed to connect pet adopters, pet owners, shelters, and service providers on a single platform. It supports pet adoption, pet care management, and access to pet-related services, while also helping homeless pets find loving homes.
 
+🔗 **Live Demo:** [Pet Pal on Vercel](https://pet-pal-chi.vercel.app/)  
+
 ---
 
 ## 🌟 Features Overview
