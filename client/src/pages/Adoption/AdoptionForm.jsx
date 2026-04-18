@@ -55,7 +55,7 @@ export default function AdoptionForm() {
     
     localStorage.setItem("myAdoptions", JSON.stringify(existing));
 
-    // Redirect to My Adoptions
+    
     navigate("/my-adoptions");
   };
 
