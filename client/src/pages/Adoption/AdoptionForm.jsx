@@ -46,7 +46,7 @@ export default function AdoptionForm() {
       status: "Pending"
     };
 
-    // Get existing adoptions
+    
     const existing = JSON.parse(localStorage.getItem("myAdoptions")) || [];
 
     // Add new request
