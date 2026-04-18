@@ -52,7 +52,7 @@ export default function AdoptionForm() {
     
     existing.push(formData);
 
-    // Save back
+    
     localStorage.setItem("myAdoptions", JSON.stringify(existing));
 
     // Redirect to My Adoptions
