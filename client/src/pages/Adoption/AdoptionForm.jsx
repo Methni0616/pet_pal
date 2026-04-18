@@ -49,7 +49,7 @@ export default function AdoptionForm() {
     
     const existing = JSON.parse(localStorage.getItem("myAdoptions")) || [];
 
-    // Add new request
+    
     existing.push(formData);
 
     // Save back
