@@ -111,7 +111,7 @@
   }
 }
 
-/* Mobile responsive tweaks */
+
 @media (max-width: 480px) {
   .favorites-title {
     font-size: 1.8rem;
