@@ -145,7 +145,7 @@ p {
   transform: scale(1.05);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .adoptionCard {
     flex-direction: column;
