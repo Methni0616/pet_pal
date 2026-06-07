@@ -1,13 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
 const Pet = require("../models/Pet");
-
-// Test Route
-router.get("/test", (req, res) => {
-  console.log("🔥 TEST ROUTE HIT");
-  res.send("Pet route working");
-});
 
 // Get All Pets
 router.get("/", async (req, res) => {
@@ -19,6 +12,25 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get Single Pet
+router.get("/:id", async (req, res) => {
+  try {
+    const pet = await Pet.findById(req.params.id);
+
+    if (!pet) {
+      return res.status(404).json({
+        message: "Pet not found",
+      });
+    }
+
+    res.json(pet);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 // Add Pet
 router.post("/add", async (req, res) => {
   try {
@@ -27,7 +39,9 @@ router.post("/add", async (req, res) => {
 
     res.status(201).json(pet);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: error.message,
+    });
   }
 });
 
