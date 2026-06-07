@@ -11,12 +11,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Debug Route
+// Root Route
 app.get("/", (req, res) => {
   res.send("🐾 Pet Pal API Running");
 });
 
-// Direct Test Route
+// Test Route
 app.get("/hello", (req, res) => {
   res.send("Hello from server");
 });
