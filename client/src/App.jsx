@@ -28,6 +28,7 @@ import Contact from "./pages/Contact/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import Terms from "./pages/Terms/Terms";
 
+import AdminAdoptions from "./pages/Adoption/AdminAdoptions";
 
 function App() {
   return (
@@ -58,8 +59,9 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-<Route path="/terms" element={<Terms />} />
+        <Route path="/terms" element={<Terms />} />
 
+        <Route path="/admin-adoptions" element={<AdminAdoptions />} />
       </Routes>
     </Router>
   );
