@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import styles from "./AdminAdoptions.module.css";
 
 export default function AdminAdoptions() {
   const navigate = useNavigate();
 
-  const [adoptions, setAdoptions] = useState([]);
+  const [adoptions, setAdoptions] =
+    useState([]);
 
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("user")
     );
 
-    if (!user || user.role !== "admin") {
+    if (
+      !user ||
+      user.role !== "admin"
+    ) {
       navigate("/");
       return;
     }
@@ -22,7 +30,9 @@ export default function AdminAdoptions() {
 
   const loadAdoptions = () => {
     axios
-      .get("http://localhost:5000/api/adoptions")
+      .get(
+        "http://localhost:5000/api/adoptions"
+      )
       .then((res) => {
         setAdoptions(res.data);
       })
@@ -31,7 +41,10 @@ export default function AdminAdoptions() {
       });
   };
 
-  const updateStatus = async (id, status) => {
+  const updateStatus = async (
+    id,
+    status
+  ) => {
     try {
       await axios.put(
         `http://localhost:5000/api/adoptions/${id}`,
@@ -45,59 +58,93 @@ export default function AdminAdoptions() {
   };
 
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>Admin Adoption Requests</h1>
+    <div className={styles.adminContainer}>
+      <h1 className={styles.adminTitle}>
+        🛠 Admin Adoption Requests
+      </h1>
 
-      {adoptions.map((adoption) => (
-        <div
-          key={adoption._id}
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            marginBottom: "15px",
-            borderRadius: "10px",
-          }}
-        >
-          <h3>{adoption.petName}</h3>
-
-          <p>
-            Applicant:{" "}
-            {adoption.userName ||
-              adoption.applicantName}
-          </p>
-
-          <p>
-            Email:{" "}
-            {adoption.userEmail ||
-              adoption.email}
-          </p>
-
-          <p>Status: {adoption.status}</p>
-
-          <button
-            onClick={() =>
-              updateStatus(
-                adoption._id,
-                "Approved"
-              )
-            }
+      {adoptions.length === 0 ? (
+        <p>No adoption requests found.</p>
+      ) : (
+        adoptions.map((adoption) => (
+          <div
+            key={adoption._id}
+            className={styles.adoptionCard}
           >
-            Approve
-          </button>
+            <h2>{adoption.petName}</h2>
 
-          <button
-            style={{ marginLeft: "10px" }}
-            onClick={() =>
-              updateStatus(
-                adoption._id,
-                "Completed"
-              )
-            }
-          >
-            Complete
-          </button>
-        </div>
-      ))}
+            <div className={styles.infoGrid}>
+              <p>
+                <strong>Applicant:</strong>{" "}
+                {adoption.userName ||
+                  adoption.applicantName}
+              </p>
+
+              <p>
+                <strong>Email:</strong>{" "}
+                {adoption.userEmail ||
+                  adoption.email}
+              </p>
+
+              <p>
+                <strong>Contact:</strong>{" "}
+                {adoption.contact}
+              </p>
+
+              <p>
+                <strong>Address:</strong>{" "}
+                {adoption.address}
+              </p>
+
+              <p>
+                <strong>Occupation:</strong>{" "}
+                {adoption.occupation}
+              </p>
+
+              <p>
+                <strong>Date:</strong>{" "}
+                {new Date(
+                  adoption.createdAt
+                ).toLocaleDateString()}
+              </p>
+
+              <p>
+                <strong>Status:</strong>{" "}
+                {adoption.status}
+              </p>
+            </div>
+
+            <div className={styles.reasonBox}>
+              <strong>Reason</strong>
+              <p>{adoption.reason}</p>
+            </div>
+
+            <div className={styles.buttonRow}>
+              <button
+                onClick={() =>
+                  updateStatus(
+                    adoption._id,
+                    "Approved"
+                  )
+                }
+              >
+                Approve
+              </button>
+
+              <button
+                onClick={() =>
+                  updateStatus(
+                    adoption._id,
+                    "Completed"
+                  )
+                }
+              >
+                Complete
+              </button>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 }
