@@ -35,3 +35,23 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+// Update Adoption Status
+
+router.put("/:id", async (req, res) => {
+  try {
+    const adoption = await Adoption.findByIdAndUpdate(
+      req.params.id,
+      {
+        status: req.body.status,
+      },
+      { new: true }
+    );
+
+    res.json(adoption);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
