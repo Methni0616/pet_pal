@@ -1,96 +1,116 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "./MyAdoptions.module.css";
 
 export default function MyAdoptions() {
   const [adoptions, setAdoptions] = useState([]);
   const [filter, setFilter] = useState("All");
 
-  // Load adoptions from localStorage
   useEffect(() => {
-    const storedAdoptions =
-      JSON.parse(localStorage.getItem("myAdoptions")) || [];
-    setAdoptions(storedAdoptions);
+    loadAdoptions();
   }, []);
 
-  // Delete adoption safely (by index)
-  const handleDelete = (deleteIndex) => {
-    const updatedAdoptions = adoptions.filter(
-      (_, index) => index !== deleteIndex
-    );
-
-    setAdoptions(updatedAdoptions);
-    localStorage.setItem(
-      "myAdoptions",
-      JSON.stringify(updatedAdoptions)
-    );
+  const loadAdoptions = () => {
+    axios
+      .get("http://localhost:5000/api/adoptions")
+      .then((res) => {
+        setAdoptions(res.data);
+      })
+      .catch((err) => {
+        console.error("Error loading adoptions:", err);
+      });
   };
 
-  // Filter adoptions by status
   const filteredAdoptions =
     filter === "All"
       ? adoptions
-      : adoptions.filter((adoption) => adoption.status === filter);
+      : adoptions.filter(
+          (adoption) => adoption.status === filter
+        );
 
   return (
     <div className={styles.container}>
       <h1>✅ My Adoptions</h1>
+
       <p>Track your adoption applications.</p>
 
-      {/* Filter Buttons */}
       <div className={styles.filterButtons}>
-        {["All", "Pending", "Approved", "Completed"].map((status) => (
-          <button
-            key={status}
-            className={filter === status ? styles.activeFilter : ""}
-            onClick={() => setFilter(status)}
-          >
-            {status}
-          </button>
-        ))}
+        {["All", "Pending", "Approved", "Completed"].map(
+          (status) => (
+            <button
+              key={status}
+              className={
+                filter === status
+                  ? styles.activeFilter
+                  : ""
+              }
+              onClick={() => setFilter(status)}
+            >
+              {status}
+            </button>
+          )
+        )}
       </div>
 
-      {/* Adoption List */}
       {filteredAdoptions.length === 0 ? (
-        <p className={styles.empty}>No adoption requests found 🐾</p>
+        <p className={styles.empty}>
+          No adoption requests found 🐾
+        </p>
       ) : (
         <div className={styles.adoptionsGrid}>
-          {filteredAdoptions.map((adoption, index) => (
+          {filteredAdoptions.map((adoption) => (
             <div
-              key={`${adoption.petName}-${index}`}
+              key={adoption._id}
               className={styles.adoptionCard}
             >
-              <div className={styles.cardLeft}>
-                <div>
-                  <h3>{adoption.petName}</h3>
-                  <p>{adoption.species}</p>
-                  <p>
-                    <strong>Date:</strong> {adoption.date}
-                  </p>
-                  <p>
-                    <strong>Status:</strong>{" "}
-                    <span
-                      className={`${styles.status} ${
-                        adoption.status === "Pending"
-                          ? styles.pending
-                          : adoption.status === "Approved"
-                          ? styles.approved
-                          : styles.completed
-                      }`}
-                    >
-                      {adoption.status}
-                    </span>
-                  </p>
-                </div>
-              </div>
+              <h3>{adoption.petName}</h3>
 
-              <div className={styles.cardRight}>
-                <button
-                  className={styles.deleteBtn}
-                  onClick={() => handleDelete(index)}
+              <p>
+                <strong>Species:</strong>{" "}
+                {adoption.species}
+              </p>
+
+              <p>
+                <strong>Applicant:</strong>{" "}
+                {adoption.applicantName}
+              </p>
+
+              <p>
+                <strong>Email:</strong>{" "}
+                {adoption.email}
+              </p>
+
+              <p>
+                <strong>Contact:</strong>{" "}
+                {adoption.contact}
+              </p>
+
+              <p>
+                <strong>Reason:</strong>{" "}
+                {adoption.reason}
+              </p>
+
+              <p>
+                <strong>Date:</strong>{" "}
+                {new Date(
+                  adoption.createdAt
+                ).toLocaleDateString()}
+              </p>
+
+              <p>
+                <strong>Status:</strong>{" "}
+                <span
+                  className={`${styles.status} ${
+                    adoption.status === "Pending"
+                      ? styles.pending
+                      : adoption.status === "Approved"
+                      ? styles.approved
+                      : styles.completed
+                  }`}
                 >
-                  Delete
-                </button>
-              </div>
+                  {adoption.status}
+                </span>
+              </p>
             </div>
           ))}
         </div>
@@ -98,4 +118,3 @@ export default function MyAdoptions() {
     </div>
   );
 }
-

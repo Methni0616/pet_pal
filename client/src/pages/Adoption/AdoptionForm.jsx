@@ -9,6 +9,11 @@ export default function AdoptionForm() {
 
   const [pet, setPet] = useState(null);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [reason, setReason] = useState("");
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/pets/${id}`)
@@ -16,9 +21,39 @@ export default function AdoptionForm() {
         setPet(res.data);
       })
       .catch((err) => {
-        console.error("Error loading pet:", err);
+        console.error(err);
       });
   }, [id]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(
+        "http://localhost:5000/api/adoptions",
+        {
+          petId: pet._id,
+          petName: pet.name,
+          species: pet.species,
+
+          applicantName: name,
+          email,
+          contact,
+          reason,
+
+          status: "Pending",
+        }
+      );
+
+      alert("Adoption request submitted!");
+
+      navigate("/my-adoptions");
+    } catch (error) {
+      console.error(error);
+
+      alert("Submission failed");
+    }
+  };
 
   if (!pet) {
     return (
@@ -28,40 +63,11 @@ export default function AdoptionForm() {
     );
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const formData = {
-      petId: pet._id,
-      petName: pet.name,
-      species: pet.species,
-      date: new Date().toLocaleDateString(),
-      status: "Pending",
-    };
-
-    const existing =
-      JSON.parse(localStorage.getItem("myAdoptions")) || [];
-
-    existing.push(formData);
-
-    localStorage.setItem(
-      "myAdoptions",
-      JSON.stringify(existing)
-    );
-
-    alert(`Adoption request submitted for ${pet.name}!`);
-
-    navigate("/my-adoptions");
-  };
-
   return (
     <div className={styles.adoptionContainer}>
       <div className={styles.petInfo}>
         <img
-          src={
-            pet.image ||
-            "https://images.unsplash.com/photo-1517849845537-4d257902454a"
-          }
+          src={pet.image}
           alt={pet.name}
           className={styles.petImage}
         />
@@ -70,8 +76,7 @@ export default function AdoptionForm() {
           <h2>{pet.name}</h2>
 
           <p>
-            <strong>Species:</strong>{" "}
-            {pet.species || "Pet"}
+            <strong>Species:</strong> {pet.species}
           </p>
 
           <p>
@@ -97,23 +102,31 @@ export default function AdoptionForm() {
         <input
           type="text"
           placeholder="Your Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
 
         <input
           type="email"
           placeholder="Your Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
         <input
           type="text"
           placeholder="Contact Number"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
           required
         />
 
         <textarea
           placeholder="Why do you want to adopt this pet?"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
           required
         />
 
