@@ -5,7 +5,9 @@ const Pet = require("../models/Pet");
 // Get All Pets
 router.get("/", async (req, res) => {
   try {
-    const pets = await Pet.find();
+    const pets = await Pet.find({
+      status: "Available",
+    });
     res.json(pets);
   } catch (error) {
     res.status(500).json({ message: error.message });
