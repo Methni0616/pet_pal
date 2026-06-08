@@ -1,24 +1,45 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// Removed react-icons to avoid extra dependencies
 import "./Auth.css";
 
 export default function Login() {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Authentication logic here
-    console.log("Email:", email, "Password:", password);
-    navigate("/"); // Redirect after login
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+      alert("Login Successful!");
+
+      if (res.data.role === "admin") {
+        navigate("/admin-adoptions");
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+
+      alert("Invalid Email or Password");
+    }
   };
 
   return (
     <div className="auth-page">
       <div className="auth-card">
         <h1 className="auth-title">Welcome Back</h1>
+
         <p className="auth-subtitle">Login to access your Pet Pal account 🐾</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
@@ -44,7 +65,7 @@ export default function Login() {
         </form>
 
         <p className="auth-footer">
-          Don't have an account?{" "}
+          Don't have an account?
           <span onClick={() => navigate("/register")} className="auth-link">
             Register
           </span>
