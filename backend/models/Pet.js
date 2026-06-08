@@ -7,6 +7,14 @@ const petSchema = new mongoose.Schema({
   age: Number,
   gender: String,
   image: String,
+
+  status: {
+    type: String,
+    default: "Available",
+  },
 });
 
-module.exports = mongoose.model("Pet", petSchema);
+module.exports = mongoose.model(
+  "Pet",
+  petSchema
+);
