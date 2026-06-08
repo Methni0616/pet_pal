@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const petRoutes = require("./routes/petRoutes");
+const adoptionRoutes = require("./routes/adoptionRoutes");
 
 require("dotenv").config();
 
@@ -23,6 +24,9 @@ app.get("/hello", (req, res) => {
 
 // Pet Routes
 app.use("/api/pets", petRoutes);
+
+// Adoption Routes
+app.use("/api/adoptions", adoptionRoutes);
 
 // MongoDB Connection
 mongoose
