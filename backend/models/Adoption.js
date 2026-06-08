@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
 
-const AdoptionSchema = new mongoose.Schema({
+const adoptionSchema = new mongoose.Schema({
   petId: String,
   petName: String,
   species: String,
 
-  applicantName: String,
-  email: String,
+  userId: String,
+  userName: String,
+  userEmail: String,
+
   contact: String,
+  address: String,
+  occupation: String,
   reason: String,
 
   status: {
@@ -23,5 +27,5 @@ const AdoptionSchema = new mongoose.Schema({
 
 module.exports = mongoose.model(
   "Adoption",
-  AdoptionSchema
+  adoptionSchema
 );
