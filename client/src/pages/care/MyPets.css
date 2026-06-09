@@ -38,15 +38,42 @@
 }
 
 .pet-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 1rem;
-  width: 220px;
-  text-align: left;
-  color: #161616;
+  background: white;
+  border-radius: 18px;
+
+  padding: 18px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
 }
 
+.pet-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+.pet-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: #ec8f48;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.pet-card button:hover {
+  background: #db6027;
+  transform: translateY(-2px);
+}
 .no-pets {
   color: gray;
   margin-top: 2rem;
