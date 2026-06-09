@@ -104,6 +104,26 @@
   transform: scale(1.05);
 }
 
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.searchInput {
+  width: 450px;
+  max-width: 90%;
+  padding: 12px 18px;
+  border: 2px solid #ec8f48;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 10px rgba(236, 143, 72, 0.3);
+}
+
 /* Responsive layout */
 @media (max-width: 600px) {
   .pet-grid {

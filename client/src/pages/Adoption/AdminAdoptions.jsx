@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./AdminAdoptions.module.css";
@@ -9,18 +6,40 @@ import styles from "./AdminAdoptions.module.css";
 export default function AdminAdoptions() {
   const navigate = useNavigate();
 
-  const [adoptions, setAdoptions] =
-    useState([]);
+  const [adoptions, setAdoptions] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const pendingCount = adoptions.filter(
+    (a) => a.status === "Pending"
+  ).length;
+
+  const approvedCount = adoptions.filter(
+    (a) => a.status === "Approved"
+  ).length;
+
+  const completedCount = adoptions.filter(
+    (a) => a.status === "Completed"
+  ).length;
+
+  const filteredAdoptions = adoptions.filter(
+    (adoption) =>
+      adoption.petName
+        ?.toLowerCase()
+        .includes(search.toLowerCase()) ||
+      adoption.userName
+        ?.toLowerCase()
+        .includes(search.toLowerCase()) ||
+      adoption.userEmail
+        ?.toLowerCase()
+        .includes(search.toLowerCase())
+  );
 
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("user")
     );
 
-    if (
-      !user ||
-      user.role !== "admin"
-    ) {
+    if (!user || user.role !== "admin") {
       navigate("/");
       return;
     }
@@ -30,9 +49,7 @@ export default function AdminAdoptions() {
 
   const loadAdoptions = () => {
     axios
-      .get(
-        "http://localhost:5000/api/adoptions"
-      )
+      .get("http://localhost:5000/api/adoptions")
       .then((res) => {
         setAdoptions(res.data);
       })
@@ -41,10 +58,7 @@ export default function AdminAdoptions() {
       });
   };
 
-  const updateStatus = async (
-    id,
-    status
-  ) => {
+  const updateStatus = async (id, status) => {
     try {
       await axios.put(
         `http://localhost:5000/api/adoptions/${id}`,
@@ -63,10 +77,41 @@ export default function AdminAdoptions() {
         🛠 Admin Adoption Requests
       </h1>
 
-      {adoptions.length === 0 ? (
-        <p>No adoption requests found.</p>
+      {/* Statistics */}
+      <div className={styles.statsContainer}>
+        <div className={styles.statCard}>
+          <h2>{pendingCount}</h2>
+          <p>Pending</p>
+        </div>
+
+        <div className={styles.statCard}>
+          <h2>{approvedCount}</h2>
+          <p>Approved</p>
+        </div>
+
+        <div className={styles.statCard}>
+          <h2>{completedCount}</h2>
+          <p>Completed</p>
+        </div>
+      </div>
+
+      {/* Search */}
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="🔍 Search by pet name, applicant or email..."
+          value={search}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
+          className={styles.searchInput}
+        />
+      </div>
+
+      {filteredAdoptions.length === 0 ? (
+        <p>No matching adoption requests found.</p>
       ) : (
-        adoptions.map((adoption) => (
+        filteredAdoptions.map((adoption) => (
           <div
             key={adoption._id}
             className={styles.adoptionCard}
@@ -76,14 +121,12 @@ export default function AdminAdoptions() {
             <div className={styles.infoGrid}>
               <p>
                 <strong>Applicant:</strong>{" "}
-                {adoption.userName ||
-                  adoption.applicantName}
+                {adoption.userName}
               </p>
 
               <p>
                 <strong>Email:</strong>{" "}
-                {adoption.userEmail ||
-                  adoption.email}
+                {adoption.userEmail}
               </p>
 
               <p>
@@ -120,27 +163,33 @@ export default function AdminAdoptions() {
             </div>
 
             <div className={styles.buttonRow}>
-              <button
-                onClick={() =>
-                  updateStatus(
-                    adoption._id,
-                    "Approved"
-                  )
-                }
-              >
-                Approve
-              </button>
+              {adoption.status ===
+                "Pending" && (
+                <button
+                  onClick={() =>
+                    updateStatus(
+                      adoption._id,
+                      "Approved"
+                    )
+                  }
+                >
+                  Approve
+                </button>
+              )}
 
-              <button
-                onClick={() =>
-                  updateStatus(
-                    adoption._id,
-                    "Completed"
-                  )
-                }
-              >
-                Complete
-              </button>
+              {adoption.status ===
+                "Approved" && (
+                <button
+                  onClick={() =>
+                    updateStatus(
+                      adoption._id,
+                      "Completed"
+                    )
+                  }
+                >
+                  Complete
+                </button>
+              )}
             </div>
           </div>
         ))

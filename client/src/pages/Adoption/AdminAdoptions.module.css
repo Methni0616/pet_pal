@@ -66,6 +66,56 @@
   background: #db6027;
 }
 
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background: white;
+  width: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.statCard h2 {
+  color: #ec8f48;
+  margin: 0;
+  font-size: 32px;
+}
+
+.statCard p {
+  margin-top: 8px;
+  color: #666;
+  font-weight: 600;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px 20px;
+  border: 2px solid #ec8f48;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #db6027;
+  box-shadow: 0 0 10px rgba(236, 143, 72, 0.3);
+}
+
 @media (max-width: 768px) {
   .infoGrid {
     grid-template-columns: 1fr;

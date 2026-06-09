@@ -1,11 +1,18 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+
 const petRoutes = require("./routes/petRoutes");
 const adoptionRoutes = require("./routes/adoptionRoutes");
 const authRoutes = require("./routes/authRoutes");
+const healthRoutes = require("./routes/healthRoutes");
+const reminderRoutes = require("./routes/reminderRoutes");
+const activityRoutes = require("./routes/activityRoutes");
+const galleryRoutes = require("./routes/galleryRoutes");
 
-require("dotenv").config();
+
 
 const app = express();
 
@@ -31,6 +38,18 @@ app.use("/api/adoptions", adoptionRoutes);
 
 // Auth Routes
 app.use("/api/auth", authRoutes);
+
+// Health Record Routes
+app.use("/api/health", healthRoutes);
+
+// Reminder Routes
+app.use("/api/reminders", reminderRoutes);
+
+// Activity Routes
+app.use("/api/activities", activityRoutes);
+
+// Gallery Routes
+app.use("/api/gallery", galleryRoutes);
 
 // MongoDB Connection
 mongoose

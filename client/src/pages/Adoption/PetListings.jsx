@@ -7,6 +7,7 @@ export default function PetListings() {
   const navigate = useNavigate();
 
   const [pets, setPets] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -39,38 +40,54 @@ export default function PetListings() {
     <div className="pet-listings-page">
       <h1 className="pet-listings-title">🐾 Available Pets for Adoption</h1>
 
+      <div className="searchContainer">
+        <input
+          type="text"
+          placeholder="Search pets..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="searchInput"
+        />
+      </div>
       <div className="pet-grid">
-        {pets.map((pet) => (
-          <div className="pet-card" key={pet._id}>
-            <img
-              src={
-                pet.image ||
-                "https://images.unsplash.com/photo-1517849845537-4d257902454a"
-              }
-              alt={pet.name}
-              className="pet-image"
-            />
+        {pets
+          .filter(
+            (pet) =>
+              pet.name.toLowerCase().includes(search.toLowerCase()) ||
+              pet.species.toLowerCase().includes(search.toLowerCase()) ||
+              pet.breed.toLowerCase().includes(search.toLowerCase()),
+          )
+          .map((pet) => (
+            <div className="pet-card" key={pet._id}>
+              <img
+                src={
+                  pet.image ||
+                  "https://images.unsplash.com/photo-1517849845537-4d257902454a"
+                }
+                alt={pet.name}
+                className="pet-image"
+              />
 
-            <h3>{pet.name}</h3>
+              <h3>{pet.name}</h3>
 
-            <p className="pet-info">
-              {pet.species || "Pet"} • {pet.breed} • {pet.age}
-            </p>
+              <p className="pet-info">
+                {pet.species || "Pet"} • {pet.breed} • {pet.age}
+              </p>
 
-            <div className="btn-row">
-              <button
-                className="view-btn"
-                onClick={() => navigate(`/adopt/${pet._id}`)}
-              >
-                View Details
-              </button>
+              <div className="btn-row">
+                <button
+                  className="view-btn"
+                  onClick={() => navigate(`/adopt/${pet._id}`)}
+                >
+                  View Details
+                </button>
 
-              <button className="fav-btn" onClick={() => addToFavorites(pet)}>
-                ❤️ Add
-              </button>
+                <button className="fav-btn" onClick={() => addToFavorites(pet)}>
+                  ❤️ Add
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

@@ -1,0 +1,144 @@
+.galleryContainer {
+  padding: 40px;
+  min-height: 100vh;
+  background: #fff7f0;
+}
+
+.title {
+  text-align: center;
+  color: #ec8f48;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.uploadCard {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+}
+
+.uploadCard h2 {
+  color: #ec8f48;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.uploadBtn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ec8f48;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.uploadBtn:hover {
+  background: #db6027;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.photoCard {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  width: 100%;
+  max-width: 380px;
+}
+
+.photoCard:hover {
+  transform: translateY(-6px);
+}
+
+.photoCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.photoCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.cardBody {
+  padding: 15px;
+}
+
+.cardBody h3 {
+  color: #ec8f48;
+  margin-bottom: 10px;
+}
+
+.deleteBtn {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  background: #e63946;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #c1121f;
+}
+
+.emptyText {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .galleryContainer {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .image {
+    height: 220px;
+  }
+}

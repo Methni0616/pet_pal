@@ -48,10 +48,13 @@ function App() {
         <Route path="/care" element={<MyPets />} />
         <Route path="/care/add" element={<AddPet />} />
         <Route path="/care/profile/:id" element={<PetProfile />} />
-        <Route path="/care/health" element={<HealthRecords />} />
-        <Route path="/care/reminders" element={<Reminders />} />
-        <Route path="/care/activity" element={<ActivityTracker />} />
-        <Route path="/care/gallery" element={<PetGallery />} />
+        <Route path="/care/health/:petId" element={<HealthRecords />} />
+
+        <Route path="/care/reminders/:petId" element={<Reminders />} />
+
+        <Route path="/care/activity/:petId" element={<ActivityTracker />} />
+
+        <Route path="/care/gallery/:petId" element={<PetGallery />} />
 
         <Route path="/services" element={<ServiceListings />} />
         <Route path="/book/:id" element={<BookingPage />} />

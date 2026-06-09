@@ -5,9 +5,7 @@ import "./Home.css";
 export default function Home() {
   const navigate = useNavigate();
 
-  const user = JSON.parse(
-    localStorage.getItem("user")
-  );
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -52,9 +50,7 @@ export default function Home() {
 
               {user.role === "admin" && (
                 <button
-                  onClick={() =>
-                    navigate("/admin-adoptions")
-                  }
+                  onClick={() => navigate("/admin-adoptions")}
                   className="nav-btn login-btn"
                 >
                   Admin Panel
@@ -75,51 +71,33 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-section">
         <h2 className="hero-title">
-          Welcome to{" "}
-          <span className="highlight">
-            Pet Pal
-          </span>{" "}
-          🐾
+          Welcome to <span className="highlight">Pet Pal</span> 🐾
         </h2>
 
         <p className="hero-subtitle">
-          Your all-in-one companion for pet adoption,
-          care management, and trusted pet services.
+          Your all-in-one companion for pet adoption, care management, and
+          trusted pet services.
         </p>
 
         <div className="hero-buttons">
-          <button
-            onClick={() => navigate("/adopt")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/adopt")} className="hero-btn">
             Adopt a Pet
           </button>
 
-          <button
-            onClick={() => navigate("/care")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/care")} className="hero-btn">
             Care for My Pet
           </button>
 
-          <button
-            onClick={() => navigate("/services")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/services")} className="hero-btn">
             Find Services
           </button>
 
-          <button
-            onClick={() => navigate("/favorites")}
-            className="hero-btn"
-          >
+          <button onClick={() => navigate("/favorites")} className="hero-btn">
             Favorites
           </button>
 
           <button
-            onClick={() =>
-              navigate("/my-adoptions")
-            }
+            onClick={() => navigate("/my-adoptions")}
             className="hero-btn"
           >
             My Adoptions
@@ -128,51 +106,50 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
+      {/* Features Section */}
       <section className="features-section">
         <div className="feature-card">
           <img
-            src="https://www.adoptapet.gov.mt/wp-content/uploads/2023/02/banner-cat-dop-1-e1675789209106.jpg"
-            alt="Adopt"
+            src="https://img.freepik.com/premium-photo/family-with-dog-dog_1089043-33195.jpg"
+            alt="Adopt a Pet"
             className="feature-img"
           />
 
           <h3>Adopt a Pet</h3>
 
           <p>
-            Find your perfect furry friend from
-            nearby shelters and give them a loving
-            home.
+            Find your perfect furry friend from nearby shelters and give them a
+            loving home.
           </p>
         </div>
 
         <div className="feature-card">
           <img
-            src="/images/care.jpg"
-            alt="Care"
+            src="https://d2zp5xs5cp8zlg.cloudfront.net/image-76721-800.jpg"
+            alt="Care for My Pet"
             className="feature-img"
           />
 
           <h3>Care for My Pet</h3>
 
           <p>
-            Keep track of your pet's health,
-            meals, and vet appointments with smart
-            reminders.
+            Keep track of your pet's health, meals, and vet appointments with
+            smart reminders.
           </p>
         </div>
 
         <div className="feature-card">
           <img
-            src="/images/services.jpg"
-            alt="Services"
+            src="https://th.bing.com/th/id/OIP.9NHfx4Ha9uxxSucyOr4i9AHaGN?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Find Services"
             className="feature-img"
           />
 
           <h3>Find Services</h3>
 
           <p>
-            Explore nearby vets, groomers, and pet
-            boarding services in one place.
+            Explore nearby vets, groomers, and pet boarding services in one
+            place.
           </p>
         </div>
       </section>
@@ -181,27 +158,20 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © {new Date().getFullYear()}{" "}
-            <strong>Pet Pal</strong>. Made with 💖
+            © {new Date().getFullYear()} <strong>Pet Pal</strong>. Made with 💖
             by Methni.
           </p>
 
           <div className="footer-links">
-            <a href="/privacy-policy">
-              Privacy Policy
-            </a>
+            <a href="/privacy-policy">Privacy Policy</a>
 
             <span>|</span>
 
-            <a href="/contact">
-              Contact Us
-            </a>
+            <a href="/contact">Contact Us</a>
 
             <span>|</span>
 
-            <a href="/terms">
-              Terms & Conditions
-            </a>
+            <a href="/terms">Terms & Conditions</a>
 
             <span>|</span>
 
@@ -209,27 +179,15 @@ export default function Home() {
           </div>
 
           <div className="social-icons">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <i className="fab fa-facebook-f"></i>
             </a>
 
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
               <i className="fab fa-instagram"></i>
             </a>
 
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">
               <i className="fab fa-twitter"></i>
             </a>
           </div>

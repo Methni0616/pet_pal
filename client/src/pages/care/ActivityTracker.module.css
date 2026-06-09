@@ -1,0 +1,158 @@
+.activityContainer {
+  min-height: 100vh;
+  padding: 40px;
+  background: #fff7f0;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heroSection h1 {
+  font-size: 42px;
+  color: #ec8f48;
+  margin-bottom: 10px;
+}
+
+.heroSection p {
+  color: #666;
+  font-size: 16px;
+}
+
+.formCard,
+.chartCard {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.formCard h2,
+.chartCard h2 {
+  color: #ec8f48;
+  margin-bottom: 20px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+  gap: 15px;
+}
+
+.formGrid input,
+.formGrid select {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.formGrid input:focus,
+.formGrid select:focus {
+  outline: none;
+  border-color: #ec8f48;
+}
+
+.addBtn {
+  margin-top: 20px;
+  background: #ec8f48;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.addBtn:hover {
+  background: #db6027;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.petFilter {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  min-width: 180px;
+}
+
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  );
+  gap: 25px;
+}
+
+.activityCard {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.activityCard:hover {
+  transform: translateY(-5px);
+}
+
+.activityCard h3 {
+  color: #ec8f48;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.activityCard p {
+  margin: 10px 0;
+  color: #444;
+  font-size: 16px;
+}
+
+.deleteBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  background: #b02a37;
+}
+
+@media (max-width: 768px) {
+  .activityContainer {
+    padding: 20px;
+  }
+
+  .heroSection h1 {
+    font-size: 30px;
+  }
+
+  .chartHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .petFilter {
+    width: 100%;
+  }
+}

@@ -1,43 +1,81 @@
-// src/pages/care/MyPets.jsx
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./MyPets.css";
 
 export default function MyPets() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [pets, setPets] = useState([]);
 
-  // If newPet was passed from AddPet, add it to the list
+  const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (location.state?.newPet) {
-      setPets((prev) => [...prev, location.state.newPet]);
+    loadPets();
+  }, []);
+
+  const loadPets = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/pets");
+      setPets(res.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
-  }, [location.state]);
+  };
 
   return (
     <div className="mypets-container">
-      <h1>🐕 My Pets</h1>
-      <p>Manage and view all your beloved pets here 💖</p>
+      <h1>🐾 My Pets</h1>
+
+      <p>
+        Manage your pets and access their health records,
+        reminders, activities and gallery.
+      </p>
 
       <div className="care-buttons">
-        <button onClick={() => navigate("/care/add")}>➕ Add a Pet</button>
-        <button onClick={() => navigate("/care/health")}>💊 Health Records</button>
-        <button onClick={() => navigate("/care/reminders")}>🕒 Reminders</button>
-        <button onClick={() => navigate("/care/activity")}>🚶 Activity Tracker</button>
-        <button onClick={() => navigate("/care/gallery")}>📸 Pet Gallery</button>
+        <button onClick={() => navigate("/care/add")}>
+          ➕ Add a Pet
+        </button>
       </div>
 
-      {/* Display added pets */}
       <div className="pets-list">
-        {pets.length === 0 ? (
-          <p className="no-pets">No pets added yet. 🐾</p>
+        {loading ? (
+          <p>Loading pets...</p>
+        ) : pets.length === 0 ? (
+          <p className="no-pets">
+            No pets found. Add your first pet 🐾
+          </p>
         ) : (
-          pets.map((pet, index) => (
-            <div key={index} className="pet-card">
+          pets.map((pet) => (
+            <div key={pet._id} className="pet-card">
+              <img
+                src={pet.image}
+                alt={pet.name}
+                className="pet-image"
+              />
+
               <h3>{pet.name}</h3>
-              <p>🐶 Breed: {pet.breed}</p>
-              <p>🎂 Age: {pet.age}</p>
+
+              <p>
+                <strong>Species:</strong> {pet.species}
+              </p>
+
+              <p>
+                <strong>Breed:</strong> {pet.breed}
+              </p>
+
+              <p>
+                <strong>Age:</strong> {pet.age}
+              </p>
+
+              <button
+                onClick={() =>
+                  navigate(`/care/profile/${pet._id}`)
+                }
+              >
+                View Profile
+              </button>
             </div>
           ))
         )}

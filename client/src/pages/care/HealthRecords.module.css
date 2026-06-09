@@ -1,0 +1,118 @@
+.healthContainer {
+  min-height: 100vh;
+  padding: 40px;
+  background: #fff7f0;
+}
+
+.title {
+  text-align: center;
+  color: #ec8f48;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.healthForm {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.healthForm input,
+.healthForm textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.healthForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.healthForm button {
+  background: #ec8f48;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.healthForm button:hover {
+  background: #db6027;
+}
+
+.recordsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 25px;
+}
+
+.recordCard {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.recordCard h3 {
+  color: #ec8f48;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.recordCard p {
+  margin: 8px 0;
+  color: #444;
+}
+
+.recordButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.editBtn,
+.deleteBtn {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+}
+
+.editBtn {
+  background: #ec8f48;
+  color: white;
+}
+
+.editBtn:hover {
+  background: #db6027;
+}
+
+.deleteBtn {
+  background: #dc3545;
+  color: white;
+}
+
+.deleteBtn:hover {
+  background: #b02a37;
+}
+
+.emptyMessage {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: #666;
+  font-size: 18px;
+}
