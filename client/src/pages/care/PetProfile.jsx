@@ -17,15 +17,15 @@ export default function PetProfile() {
   });
 
   useEffect(() => {
-    loadPet();
-    loadStats();
+    if (id) {
+      loadPet();
+      loadStats();
+    }
   }, [id]);
 
   const loadPet = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/pets/${id}`
-      );
+      const res = await axios.get(`http://localhost:5000/api/pets/${id}`);
 
       setPet(res.data);
     } catch (error) {
@@ -37,18 +37,10 @@ export default function PetProfile() {
     try {
       const [healthRes, reminderRes, activityRes, galleryRes] =
         await Promise.all([
-          axios.get(
-            `http://localhost:5000/api/health/pet/${id}`
-          ),
-          axios.get(
-            `http://localhost:5000/api/reminders/pet/${id}`
-          ),
-          axios.get(
-            `http://localhost:5000/api/activities/pet/${id}`
-          ),
-          axios.get(
-            `http://localhost:5000/api/gallery/pet/${id}`
-          ),
+          axios.get(`http://localhost:5000/api/health/pet/${id}`),
+          axios.get(`http://localhost:5000/api/reminders/pet/${id}`),
+          axios.get(`http://localhost:5000/api/activities/pet/${id}`),
+          axios.get(`http://localhost:5000/api/gallery/pet/${id}`),
         ]);
 
       setStats({
@@ -63,21 +55,13 @@ export default function PetProfile() {
   };
 
   if (!pet) {
-    return (
-      <div className={styles.loading}>
-        Loading Pet Profile...
-      </div>
-    );
+    return <div className={styles.loading}>Loading Pet Profile...</div>;
   }
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileCard}>
-        <img
-          src={pet.image}
-          alt={pet.name}
-          className={styles.petImage}
-        />
+        <img src={pet.image} alt={pet.name} className={styles.petImage} />
 
         <div className={styles.petInfo}>
           <h1>{pet.name}</h1>
@@ -134,35 +118,19 @@ export default function PetProfile() {
         <h2>Pet Care Tools</h2>
 
         <div className={styles.actionGrid}>
-          <button
-            onClick={() =>
-              navigate(`/care/health/${pet._id}`)
-            }
-          >
+          <button onClick={() => navigate(`/care/health/${pet._id}`)}>
             💊 Health Records
           </button>
 
-          <button
-            onClick={() =>
-              navigate(`/care/reminders/${pet._id}`)
-            }
-          >
+          <button onClick={() => navigate(`/care/reminders/${pet._id}`)}>
             🕒 Reminders
           </button>
 
-          <button
-            onClick={() =>
-              navigate(`/care/activity/${pet._id}`)
-            }
-          >
+          <button onClick={() => navigate(`/care/activity/${pet._id}`)}>
             🚶 Activity Tracker
           </button>
 
-          <button
-            onClick={() =>
-              navigate(`/care/gallery/${pet._id}`)
-            }
-          >
+          <button onClick={() => navigate(`/care/gallery/${pet._id}`)}>
             📸 Gallery
           </button>
         </div>
