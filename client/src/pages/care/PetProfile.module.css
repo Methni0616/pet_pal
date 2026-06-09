@@ -81,7 +81,55 @@
   padding: 100px;
   font-size: 1.3rem;
 }
+.dashboardSection {
+  margin-top: 40px;
+}
 
+.dashboardTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+.statCard {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+}
+
+.statNumber {
+  font-size: 42px;
+  font-weight: 700;
+
+  color: #ec8f48;
+}
+
+.statLabel {
+  margin-top: 10px;
+
+  color: #555;
+
+  font-size: 16px;
+}
 @media (max-width: 768px) {
   .profileCard {
     flex-direction: column;
