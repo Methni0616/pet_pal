@@ -115,6 +115,18 @@
   border-color: #db6027;
   box-shadow: 0 0 10px rgba(236, 143, 72, 0.3);
 }
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.userInfo input {
+  background: #f8f8f8;
+  color: #555;
+  cursor: not-allowed;
+}
 
 @media (max-width: 768px) {
   .infoGrid {
