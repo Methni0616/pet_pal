@@ -66,8 +66,12 @@
 
 .btn-row {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.btn-row button {
+  flex: 1;
 }
 
 /* Main orange view button */
