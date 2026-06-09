@@ -1,60 +1,65 @@
 .addpet-container {
-  text-align: center;
-  padding: 2rem;
-  background-color: #fff7f1;   /* Similar soft background */
   min-height: 100vh;
-  color: #3e3e3e;
+  background: #fff7f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
 }
 
-/* Form layout */
-form {
+.addpet-card {
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.addpet-card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ec8f48;
+}
+
+.addpet-card form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 280px;
-  margin: 0 auto;
+  gap: 15px;
 }
 
-/* Inputs matching auth-form theme */
-input {
-  padding: 0.75rem;
+.addpet-card input,
+.addpet-card select {
+  padding: 12px;
+  border-radius: 10px;
   border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  background-color: #fff !important;
-  color: #333;
-  transition: border 0.2s ease, background-color 0.2s ease;
+  font-size: 15px;
 }
 
-/* Focus state */
-input:focus {
-  border-color: #ec8f48;
+.addpet-card input:focus,
+.addpet-card select:focus {
   outline: none;
-  background-color: #fff !important;
+  border-color: #ec8f48;
 }
 
-/* Chrome autofill fix */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
-  -webkit-text-fill-color: #333 !important;
-  transition: background-color 5000s ease-in-out 0s;
+.preview-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-/* Button styled like auth-btn */
-button {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: #ec8f48;
+.addpet-card button {
+  background: #ec8f48;
   color: white;
-  font-weight: 600;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  font-weight: 600;
 }
 
-button:hover {
-  background-color: #db6027;
-  transform: scale(1.05);
+.addpet-card button:hover {
+  background: #db6027;
 }
