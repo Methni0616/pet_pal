@@ -15,7 +15,18 @@ export default function MyPets() {
 
   const loadPets = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/pets");
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (!user) {
+        setPets([]);
+        return;
+      }
+
+      const res = await axios.get("http://localhost:5000/api/pets/my-pets", {
+        params: {
+          ownerId: user._id,
+        },
+      });
       setPets(res.data);
     } catch (error) {
       console.error(error);
@@ -29,31 +40,23 @@ export default function MyPets() {
       <h1>🐾 My Pets</h1>
 
       <p>
-        Manage your pets and access their health records,
-        reminders, activities and gallery.
+        Manage your pets and access their health records, reminders, activities
+        and gallery.
       </p>
 
       <div className="care-buttons">
-        <button onClick={() => navigate("/care/add")}>
-          ➕ Add a Pet
-        </button>
+        <button onClick={() => navigate("/care/add")}>➕ Add a Pet</button>
       </div>
 
       <div className="pets-list">
         {loading ? (
           <p>Loading pets...</p>
         ) : pets.length === 0 ? (
-          <p className="no-pets">
-            No pets found. Add your first pet 🐾
-          </p>
+          <p className="no-pets">No pets found. Add your first pet 🐾</p>
         ) : (
           pets.map((pet) => (
             <div key={pet._id} className="pet-card">
-              <img
-                src={pet.image}
-                alt={pet.name}
-                className="pet-image"
-              />
+              <img src={pet.image} alt={pet.name} className="pet-image" />
 
               <h3>{pet.name}</h3>
 
@@ -69,11 +72,7 @@ export default function MyPets() {
                 <strong>Age:</strong> {pet.age}
               </p>
 
-              <button
-                onClick={() =>
-                  navigate(`/care/profile/${pet._id}`)
-                }
-              >
+              <button onClick={() => navigate(`/care/profile/${pet._id}`)}>
                 View Profile
               </button>
             </div>
