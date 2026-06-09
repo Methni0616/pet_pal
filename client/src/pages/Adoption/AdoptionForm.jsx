@@ -14,9 +14,7 @@ export default function AdoptionForm() {
   const [occupation, setOccupation] = useState("");
   const [reason, setReason] = useState("");
 
-  const user = JSON.parse(
-    localStorage.getItem("user") || "null"
-  );
+  const user = JSON.parse(localStorage.getItem("user") || "null");
 
   useEffect(() => {
     axios
@@ -39,23 +37,20 @@ export default function AdoptionForm() {
     }
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/adoptions",
-        {
-          petId: pet._id,
-          petName: pet.name,
-          species: pet.species,
+      await axios.post("http://localhost:5000/api/adoptions", {
+        petId: pet._id,
+        petName: pet.name,
+        species: pet.species,
 
-          userId: user._id,
-          userName: user.name,
-          userEmail: user.email,
+        userId: user._id,
+        userName: user.name,
+        userEmail: user.email,
 
-          contact,
-          address,
-          occupation,
-          reason,
-        }
-      );
+        contact,
+        address,
+        occupation,
+        reason,
+      });
 
       alert("Adoption request submitted!");
       navigate("/my-adoptions");
@@ -70,93 +65,83 @@ export default function AdoptionForm() {
   }
 
   return (
-  <div className={styles.adoptionContainer}>
-    
-    <div className={styles.petInfo}>
-      <img
-        src={pet.image}
-        alt={pet.name}
-        className={styles.petImage}
-      />
+    <div className={styles.adoptionContainer}>
+      <div className={styles.petInfo}>
+        <img src={pet.image} alt={pet.name} className={styles.petImage} />
 
-      <div className={styles.petDetails}>
-        <h2>{pet.name}</h2>
+        <div className={styles.petDetails}>
+          <h2>{pet.name}</h2>
 
-        <p>
-          <strong>Species:</strong> {pet.species}
-        </p>
+          <p>
+            <strong>Species:</strong> {pet.species}
+          </p>
 
-        <p>
-          <strong>Breed:</strong> {pet.breed}
-        </p>
+          <p>
+            <strong>Breed:</strong> {pet.breed}
+          </p>
 
-        <p>
-          <strong>Age:</strong> {pet.age}
-        </p>
+          <p>
+            <strong>Age:</strong> {pet.age}
+          </p>
 
-        <p>
-          <strong>Gender:</strong> {pet.gender}
-        </p>
+          <p>
+            <strong>Gender:</strong> {pet.gender}
+          </p>
+        </div>
       </div>
+
+      <form className={styles.adoptionForm} onSubmit={handleSubmit}>
+        <h2>🐾 Adopt {pet.name}</h2>
+
+        <div className={styles.userInfo}>
+          <input
+            type="text"
+            value={user?.name || ""}
+            placeholder="Your Name"
+            readOnly
+          />
+
+          <input
+            type="email"
+            value={user?.email || ""}
+            placeholder="Your Email"
+            readOnly
+          />
+        </div>
+
+        <input
+          type="text"
+          placeholder="Contact Number"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Occupation"
+          value={occupation}
+          onChange={(e) => setOccupation(e.target.value)}
+          required
+        />
+
+        <textarea
+          placeholder="Why do you want to adopt this pet?"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
+          required
+        />
+
+        <button type="submit">Submit Adoption Request</button>
+      </form>
     </div>
-
-    <form
-      className={styles.adoptionForm}
-      onSubmit={handleSubmit}
-    >
-      <h2>Adopt {pet.name}</h2>
-
-      <p>
-        <strong>Name:</strong> {user?.name}
-      </p>
-
-      <p>
-        <strong>Email:</strong> {user?.email}
-      </p>
-
-      <input
-        type="text"
-        placeholder="Contact Number"
-        value={contact}
-        onChange={(e) =>
-          setContact(e.target.value)
-        }
-        required
-      />
-
-      <input
-        type="text"
-        placeholder="Address"
-        value={address}
-        onChange={(e) =>
-          setAddress(e.target.value)
-        }
-        required
-      />
-
-      <input
-        type="text"
-        placeholder="Occupation"
-        value={occupation}
-        onChange={(e) =>
-          setOccupation(e.target.value)
-        }
-        required
-      />
-
-      <textarea
-        placeholder="Why do you want to adopt this pet?"
-        value={reason}
-        onChange={(e) =>
-          setReason(e.target.value)
-        }
-        required
-      />
-
-      <button type="submit">
-        Submit Adoption Request
-      </button>
-    </form>
-  </div>
-);
+  );
 }
