@@ -181,13 +181,19 @@ export default function VaccinationTracker() {
         ) : (
           records.map((record) => (
             <div key={record._id} className={styles.card}>
-              <h3>{record.vaccineName}</h3>
+              <div className={styles.cardContent}>
+                <h3>{record.vaccineName}</h3>
 
-              <p>📅 Given: {new Date(record.dateGiven).toLocaleDateString()}</p>
+                <p>
+                  📅 Given: {new Date(record.dateGiven).toLocaleDateString()}
+                </p>
 
-              <p>⏰ Due: {new Date(record.nextDueDate).toLocaleDateString()}</p>
+                <p>
+                  ⏰ Due: {new Date(record.nextDueDate).toLocaleDateString()}
+                </p>
 
-              {record.notes && <p>📝 {record.notes}</p>}
+                <p>📝 {record.notes || "No additional notes"}</p>
+              </div>
 
               <span
                 className={`${styles.status} ${
