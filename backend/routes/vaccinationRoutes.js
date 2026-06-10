@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 const Vaccination = require("../models/Vaccination");
@@ -7,10 +6,9 @@ const Vaccination = require("../models/Vaccination");
 // GET ALL
 router.get("/", async (req, res) => {
   try {
-    const vaccinations =
-      await Vaccination.find().sort({
-        nextDueDate: 1,
-      });
+    const vaccinations = await Vaccination.find().sort({
+      nextDueDate: 1,
+    });
 
     res.json(vaccinations);
   } catch (error) {
@@ -23,12 +21,11 @@ router.get("/", async (req, res) => {
 // GET BY PET
 router.get("/pet/:petId", async (req, res) => {
   try {
-    const vaccinations =
-      await Vaccination.find({
-        petId: req.params.petId,
-      }).sort({
-        nextDueDate: 1,
-      });
+    const vaccinations = await Vaccination.find({
+      petId: req.params.petId,
+    }).sort({
+      nextDueDate: 1,
+    });
 
     res.json(vaccinations);
   } catch (error) {
@@ -41,8 +38,7 @@ router.get("/pet/:petId", async (req, res) => {
 // ADD
 router.post("/", async (req, res) => {
   try {
-    const vaccination =
-      await Vaccination.create(req.body);
+    const vaccination = await Vaccination.create(req.body);
 
     res.status(201).json(vaccination);
   } catch (error) {
@@ -52,17 +48,16 @@ router.post("/", async (req, res) => {
   }
 });
 
-// UPDATE
-router.put("/:id", async (req, res) => {
+// UPDATE STATUS
+router.put("/:id/status", async (req, res) => {
   try {
-    const updated =
-      await Vaccination.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-          new: true,
-        }
-      );
+    const updated = await Vaccination.findByIdAndUpdate(
+      req.params.id,
+      {
+        status: req.body.status,
+      },
+      { new: true }
+    );
 
     res.json(updated);
   } catch (error) {
@@ -75,13 +70,10 @@ router.put("/:id", async (req, res) => {
 // DELETE
 router.delete("/:id", async (req, res) => {
   try {
-    await Vaccination.findByIdAndDelete(
-      req.params.id
-    );
+    await Vaccination.findByIdAndDelete(req.params.id);
 
     res.json({
-      message:
-        "Vaccination deleted successfully",
+      message: "Vaccination deleted successfully",
     });
   } catch (error) {
     res.status(500).json({
