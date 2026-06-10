@@ -133,6 +133,10 @@ export default function PetProfile() {
           <button onClick={() => navigate(`/care/gallery/${pet._id}`)}>
             📸 Gallery
           </button>
+
+          <button onClick={() => navigate(`/care/vaccinations/${pet._id}`)}>
+            💉 Vaccinations
+          </button>
         </div>
       </div>
     </div>
