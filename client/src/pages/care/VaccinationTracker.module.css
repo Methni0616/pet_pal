@@ -1,78 +1,178 @@
 .container {
-  padding: 2rem;
   min-height: 100vh;
+  padding: 40px 20px;
   background: #fff7f1;
 }
 
 .container h1 {
   text-align: center;
   color: #db6027;
-  margin-bottom: 2rem;
+  font-size: 42px;
+  margin-bottom: 30px;
 }
 
-.form {
-  max-width: 700px;
-  margin: auto;
+/* PET HEADER */
+
+.petHeader {
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+
   background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  border-radius: 24px;
+  padding: 25px;
 
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 25px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.form input,
+.petImage {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.petHeader h2 {
+  font-size: 36px;
+  color: #db6027;
+  margin-bottom: 10px;
+}
+
+.petHeader p {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #444;
+}
+
+/* FORM */
+
+.form {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .form textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  grid-column: span 2;
+  min-height: 120px;
 }
 
 .form button {
+  grid-column: span 2;
+
+  border: none;
   background: #ec8f48;
   color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
+
+  padding: 15px;
+  border-radius: 12px;
+
+  font-size: 18px;
+  font-weight: 600;
+
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .form button:hover {
   background: #db6027;
 }
 
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 16px;
+  outline: none;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #ec8f48;
+}
+
+.readOnlyInput {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* CARDS */
+
 .cardGrid {
-  margin-top: 2rem;
+  max-width: 1100px;
+  margin: 35px auto 0 auto;
 
   display: grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(280px, 1fr)
-    );
-
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background: white;
+  padding: 20px;
   border-radius: 20px;
-  padding: 1rem;
-  box-shadow:
-    0 8px 25px
-    rgba(0,0,0,.08);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
 }
+
+.card h3 {
+  font-size: 24px;
+  color: #db6027;
+  margin-bottom: 15px;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.card button {
+  margin-top: auto;
+
+  border: none;
+  background: #db6027;
+  color: white;
+
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #c74f18;
+}
+
+/* STATUS */
 
 .status {
   display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
+  margin-top: 12px;
+
+  padding: 6px 14px;
   border-radius: 20px;
+
   color: white;
   font-size: 13px;
+  font-weight: 600;
 }
 
 .completed {
@@ -87,13 +187,26 @@
   background: #dc2626;
 }
 
-.card button {
-  margin-top: 1rem;
-  width: 100%;
-  border: none;
-  background: #db6027;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+.empty {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .petHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .form textarea,
+  .form button {
+    grid-column: span 1;
+  }
 }
