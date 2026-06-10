@@ -11,8 +11,7 @@ const healthRoutes = require("./routes/healthRoutes");
 const reminderRoutes = require("./routes/reminderRoutes");
 const activityRoutes = require("./routes/activityRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
-
-
+const vaccinationRoutes = require("./routes/vaccinationRoutes");
 
 const app = express();
 
@@ -50,6 +49,9 @@ app.use("/api/activities", activityRoutes);
 
 // Gallery Routes
 app.use("/api/gallery", galleryRoutes);
+
+// Vaccination Routes
+app.use("/api/vaccinations", vaccinationRoutes);
 
 // MongoDB Connection
 mongoose
