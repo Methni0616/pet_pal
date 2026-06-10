@@ -23,7 +23,9 @@ export default function VaccinationTracker() {
 
   const loadPet = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/pets/${petId}`);
+      const res = await axios.get(
+        `http://localhost:5000/api/pets/${petId}`
+      );
 
       setPet(res.data);
     } catch (error) {
@@ -34,7 +36,7 @@ export default function VaccinationTracker() {
   const loadVaccinations = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/vaccinations/pet/${petId}`,
+        `http://localhost:5000/api/vaccinations/pet/${petId}`
       );
 
       setRecords(res.data);
@@ -63,15 +65,18 @@ export default function VaccinationTracker() {
         status = "Upcoming";
       }
 
-      await axios.post("http://localhost:5000/api/vaccinations", {
-        petId,
-        petName: pet.name,
-        vaccineName: form.vaccineName,
-        dateGiven: form.dateGiven,
-        nextDueDate: form.nextDueDate,
-        notes: form.notes,
-        status,
-      });
+      await axios.post(
+        "http://localhost:5000/api/vaccinations",
+        {
+          petId,
+          petName: pet.name,
+          vaccineName: form.vaccineName,
+          dateGiven: form.dateGiven,
+          nextDueDate: form.nextDueDate,
+          notes: form.notes,
+          status,
+        }
+      );
 
       setForm({
         vaccineName: "",
@@ -87,12 +92,41 @@ export default function VaccinationTracker() {
   };
 
   const deleteVaccination = async (id) => {
-    if (!window.confirm("Delete this vaccination record?")) {
+    if (
+      !window.confirm(
+        "Delete this vaccination record?"
+      )
+    ) {
       return;
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/vaccinations/${id}`);
+      await axios.delete(
+        `http://localhost:5000/api/vaccinations/${id}`
+      );
+
+      loadVaccinations();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const updateStatus = async (
+    id,
+    currentStatus
+  ) => {
+    try {
+      const newStatus =
+        currentStatus === "Completed"
+          ? "Upcoming"
+          : "Completed";
+
+      await axios.put(
+        `http://localhost:5000/api/vaccinations/${id}/status`,
+        {
+          status: newStatus,
+        }
+      );
 
       loadVaccinations();
     } catch (error) {
@@ -106,27 +140,37 @@ export default function VaccinationTracker() {
 
       {pet && (
         <div className={styles.petHeader}>
-          <img src={pet.image} alt={pet.name} className={styles.petImage} />
+          <img
+            src={pet.image}
+            alt={pet.name}
+            className={styles.petImage}
+          />
 
           <div>
             <h2>{pet.name}</h2>
 
             <p>
-              <strong>Species:</strong> {pet.species}
+              <strong>Species:</strong>{" "}
+              {pet.species}
             </p>
 
             <p>
-              <strong>Breed:</strong> {pet.breed}
+              <strong>Breed:</strong>{" "}
+              {pet.breed}
             </p>
 
             <p>
-              <strong>Age:</strong> {pet.age}
+              <strong>Age:</strong>{" "}
+              {pet.age}
             </p>
           </div>
         </div>
       )}
 
-      <form className={styles.form} onSubmit={addVaccination}>
+      <form
+        className={styles.form}
+        onSubmit={addVaccination}
+      >
         <input
           value={pet?.name || ""}
           disabled
@@ -142,7 +186,9 @@ export default function VaccinationTracker() {
         />
 
         <div className={styles.inputGroup}>
-          <label>Date Given</label>
+          <label>
+            📅 Vaccination Date
+          </label>
 
           <input
             type="date"
@@ -154,7 +200,9 @@ export default function VaccinationTracker() {
         </div>
 
         <div className={styles.inputGroup}>
-          <label>Next Due Date</label>
+          <label>
+            ⏰ Next Due Date
+          </label>
 
           <input
             type="date"
@@ -167,43 +215,85 @@ export default function VaccinationTracker() {
 
         <textarea
           name="notes"
-          placeholder="Notes"
+          placeholder="Additional Notes"
           value={form.notes}
           onChange={handleChange}
         />
 
-        <button type="submit">Save Vaccination</button>
+        <button
+          type="submit"
+          className={styles.saveBtn}
+        >
+          Save Vaccination
+        </button>
       </form>
 
       <div className={styles.cardGrid}>
         {records.length === 0 ? (
-          <p className={styles.empty}>No vaccination records found.</p>
+          <p className={styles.empty}>
+            No vaccination records found.
+          </p>
         ) : (
           records.map((record) => (
-            <div key={record._id} className={styles.card}>
-              <div className={styles.cardContent}>
-                <h3>{record.vaccineName}</h3>
+            <div
+              key={record._id}
+              className={styles.card}
+            >
+              <div
+                className={styles.cardContent}
+              >
+                <h3>
+                  {record.vaccineName}
+                </h3>
 
                 <p>
-                  📅 Given: {new Date(record.dateGiven).toLocaleDateString()}
+                  📅 Given:{" "}
+                  {new Date(
+                    record.dateGiven
+                  ).toLocaleDateString()}
                 </p>
 
                 <p>
-                  ⏰ Due: {new Date(record.nextDueDate).toLocaleDateString()}
+                  ⏰ Due:{" "}
+                  {new Date(
+                    record.nextDueDate
+                  ).toLocaleDateString()}
                 </p>
 
-                <p>📝 {record.notes || "No additional notes"}</p>
+                <p>
+                  📝{" "}
+                  {record.notes ||
+                    "No additional notes"}
+                </p>
               </div>
 
-              <span
-                className={`${styles.status} ${
-                  styles[record.status.toLowerCase()]
-                }`}
+              <button
+                className={
+                  record.status ===
+                  "Completed"
+                    ? styles.completedBtn
+                    : styles.upcomingBtn
+                }
+                onClick={() =>
+                  updateStatus(
+                    record._id,
+                    record.status
+                  )
+                }
               >
                 {record.status}
-              </span>
+              </button>
 
-              <button onClick={() => deleteVaccination(record._id)}>
+              <button
+                className={
+                  styles.deleteBtn
+                }
+                onClick={() =>
+                  deleteVaccination(
+                    record._id
+                  )
+                }
+              >
                 Delete
               </button>
             </div>
