@@ -141,21 +141,29 @@ export default function VaccinationTracker() {
           required
         />
 
-        <input
-          type="date"
-          name="dateGiven"
-          value={form.dateGiven}
-          onChange={handleChange}
-          required
-        />
+        <div className={styles.inputGroup}>
+          <label>Date Given</label>
 
-        <input
-          type="date"
-          name="nextDueDate"
-          value={form.nextDueDate}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="date"
+            name="dateGiven"
+            value={form.dateGiven}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <label>Next Due Date</label>
+
+          <input
+            type="date"
+            name="nextDueDate"
+            value={form.nextDueDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
         <textarea
           name="notes"
