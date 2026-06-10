@@ -11,11 +11,11 @@
   margin-bottom: 30px;
 }
 
-/* PET HEADER */
+/* Pet Header */
 
 .petHeader {
   max-width: 1100px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px;
 
   background: white;
   border-radius: 24px;
@@ -25,7 +25,7 @@
   align-items: center;
   gap: 25px;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
 .petImage {
@@ -36,58 +36,32 @@
 }
 
 .petHeader h2 {
-  font-size: 36px;
   color: #db6027;
+  font-size: 34px;
   margin-bottom: 10px;
 }
 
 .petHeader p {
-  font-size: 18px;
-  margin: 5px 0;
+  font-size: 17px;
   color: #444;
+  margin: 4px 0;
 }
 
-/* FORM */
+/* Form */
 
 .form {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
 
   background: white;
   padding: 30px;
   border-radius: 24px;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-}
-
-.form textarea {
-  grid-column: span 2;
-  min-height: 120px;
-}
-
-.form button {
-  grid-column: span 2;
-
-  border: none;
-  background: #ec8f48;
-  color: white;
-
-  padding: 15px;
-  border-radius: 12px;
-
-  font-size: 18px;
-  font-weight: 600;
-
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.form button:hover {
-  background: #db6027;
 }
 
 .form input,
@@ -108,94 +82,8 @@
 }
 
 .readOnlyInput {
-  background: #f5f5f5;
+  background: #f3f3f3;
   cursor: not-allowed;
-}
-
-/* CARDS */
-
-.cardGrid {
-  max-width: 1100px;
-  margin: 35px auto 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-  display: flex;
-  flex-direction: column;
-
-  min-height: 280px;
-}
-
-.cardContent {
-  flex: 1;
-}
-
-.card h3 {
-  font-size: 24px;
-  color: #db6027;
-  margin-bottom: 15px;
-}
-
-.card p {
-  margin: 6px 0;
-  color: #444;
-}
-
-.card button {
-  margin-top: auto;
-
-  border: none;
-  background: #db6027;
-  color: white;
-
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.card button:hover {
-  background: #c74f18;
-}
-
-/* STATUS */
-
-.status {
-  display: inline-block;
-  margin-top: 12px;
-
-  padding: 6px 14px;
-  border-radius: 20px;
-
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.completed {
-  background: #16a34a;
-}
-
-.upcoming {
-  background: #f59e0b;
-}
-
-.overdue {
-  background: #dc2626;
-}
-
-.empty {
-  text-align: center;
-  color: #666;
-  font-size: 18px;
 }
 
 .inputGroup {
@@ -210,7 +98,141 @@
   color: #555;
 }
 
-/* MOBILE */
+.form textarea {
+  grid-column: span 2;
+  min-height: 120px;
+}
+
+.saveBtn {
+  grid-column: span 2;
+
+  background: #ec8f48;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 14px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background: #db6027;
+}
+
+/* Cards */
+
+.cardGrid {
+  max-width: 1100px;
+  margin: 35px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  );
+
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 320px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.card h3 {
+  color: #db6027;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 16px;
+}
+
+.completedBtn {
+  width: 100%;
+
+  background: #16a34a;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.completedBtn:hover {
+  background: #15803d;
+}
+
+.upcomingBtn {
+  width: 100%;
+
+  background: #f59e0b;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.upcomingBtn:hover {
+  background: #d97706;
+}
+
+.deleteBtn {
+  width: 100%;
+  margin-top: 10px;
+
+  background: #db6027;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background: #c74f18;
+}
+
+.empty {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Mobile */
 
 @media (max-width: 768px) {
   .petHeader {
@@ -223,7 +245,7 @@
   }
 
   .form textarea,
-  .form button {
+  .saveBtn {
     grid-column: span 1;
   }
 }
