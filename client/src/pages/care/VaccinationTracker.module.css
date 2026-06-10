@@ -193,6 +193,18 @@
   font-size: 18px;
 }
 
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
 /* MOBILE */
 
 @media (max-width: 768px) {
