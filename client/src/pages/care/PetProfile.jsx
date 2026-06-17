@@ -137,6 +137,10 @@ export default function PetProfile() {
           <button onClick={() => navigate(`/care/vaccinations/${pet._id}`)}>
             💉 Vaccinations
           </button>
+
+          <button onClick={() => navigate(`/care/weight/${pet._id}`)}>
+            ⚖️ Weight Tracker
+          </button>
         </div>
       </div>
     </div>
