@@ -22,6 +22,7 @@ import PetGallery from "./pages/care/PetGallery";
 import VaccinationTracker from "./pages/care/VaccinationTracker";
 import WeightTracker from "./pages/care/WeightTracker";
 import MedicationTracker from "./pages/care/MedicationTracker";
+import VetVisitTracker from "./pages/care/VetVisitTracker";
 
 import ServiceListings from "./pages/Services/ServiceListings";
 import BookingPage from "./pages/Services/BookingPage";
@@ -61,6 +62,8 @@ function App() {
         <Route path="/care/vaccinations/:petId"element={<VaccinationTracker />}/>
         <Route path="/care/weight/:petId" element={<WeightTracker />} />
         <Route path="/care/medications/:petId" element={<MedicationTracker />} />
+        <Route path="/care/vet-visits/:petId" element={<VetVisitTracker />} />
+
         <Route path="/services" element={<ServiceListings />} />
         <Route path="/book/:id" element={<BookingPage />} />
 
