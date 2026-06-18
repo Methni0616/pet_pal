@@ -130,6 +130,34 @@
   color: #db6027;
 }
 
+.reportSection {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.reportBtn {
+  background: #db6027;
+  color: white;
+
+  border: none;
+
+  padding: 14px 30px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.reportBtn:hover {
+  background: #c74f18;
+  transform: translateY(-2px);
+}
+
 @media(max-width:768px){
   .petHeader{
     flex-direction:column;
