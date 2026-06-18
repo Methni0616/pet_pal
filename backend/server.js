@@ -15,6 +15,7 @@ const vaccinationRoutes = require("./routes/vaccinationRoutes");
 const weightRoutes = require("./routes/weightRoutes");
 const medicationRoutes = require("./routes/medicationRoutes");
 const vetVisitRoutes = require("./routes/vetVisitRoutes");
+const feedingRoutes = require("./routes/feedingRoutes");
 
 const app = express();
 
@@ -64,6 +65,9 @@ app.use("/api/medications", medicationRoutes);
 
 // Vet Visit Routes
 app.use("/api/vet-visits", vetVisitRoutes);
+
+// Feeding Routes
+app.use("/api/feeding", feedingRoutes);
 
 // MongoDB Connection
 mongoose
