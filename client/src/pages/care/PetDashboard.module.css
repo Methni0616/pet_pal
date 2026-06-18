@@ -1,0 +1,123 @@
+.container {
+  min-height: 100vh;
+  padding: 40px;
+  background: #fff7f1;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.container h1 {
+  text-align: center;
+  color: #db6027;
+  margin-bottom: 30px;
+}
+
+.petHeader {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+
+  display: flex;
+  gap: 25px;
+  align-items: center;
+
+  box-shadow: 0 8px 25px
+    rgba(0,0,0,.08);
+}
+
+.petHeader img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.healthCard {
+  max-width: 400px;
+  margin: 30px auto;
+
+  text-align: center;
+
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px
+    rgba(0,0,0,.08);
+}
+
+.healthScore {
+  font-size: 48px;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.statsGrid {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(180px, 1fr)
+    );
+
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px
+    rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.card:hover {
+  transform:
+    translateY(-5px);
+}
+
+.card h3 {
+  font-size: 32px;
+  margin: 10px 0;
+  color: #db6027;
+}
+
+.latestCard {
+  max-width: 500px;
+  margin: 30px auto;
+
+  background: white;
+  padding: 25px;
+
+  border-radius: 20px;
+  text-align: center;
+
+  box-shadow: 0 8px 25px
+    rgba(0,0,0,.08);
+}
+
+.latestCard h3 {
+  color: #db6027;
+  font-size: 40px;
+}
+
+@media(max-width:768px){
+  .petHeader{
+    flex-direction:column;
+    text-align:center;
+  }
+}
