@@ -67,7 +67,7 @@ app.use("/api/medications", medicationRoutes);
 app.use("/api/vet-visits", vetVisitRoutes);
 
 // Feeding Routes
-app.use("/api/feeding", feedingRoutes);
+app.use("/api/feedings", feedingRoutes);
 
 // MongoDB Connection
 mongoose
