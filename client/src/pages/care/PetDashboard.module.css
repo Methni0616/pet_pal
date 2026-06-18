@@ -115,6 +115,21 @@
   font-size: 40px;
 }
 
+.chartCard {
+  background: white;
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.chartCard h2 {
+  margin-bottom: 20px;
+  color: #db6027;
+}
+
 @media(max-width:768px){
   .petHeader{
     flex-direction:column;
