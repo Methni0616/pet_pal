@@ -1,19 +1,37 @@
-import React, {
-  useEffect,
-  useState,
-} from "react";
-
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import { useParams } from "react-router-dom";
 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+import { Line } from "react-chartjs-2";
+
 import styles from "./PetDashboard.module.css";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export default function PetDashboard() {
   const { petId } = useParams();
 
-  const [data, setData] =
-    useState(null);
+  const [data, setData] = useState(null);
+  const [weightRecords, setWeightRecords] = useState([]);
 
   useEffect(() => {
     loadDashboard();
@@ -25,10 +43,39 @@ export default function PetDashboard() {
         `http://localhost:5000/api/dashboard/${petId}`
       );
 
+      const weightRes = await axios.get(
+        `http://localhost:5000/api/weights/pet/${petId}`
+      );
+
       setData(res.data);
+      setWeightRecords(weightRes.data);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const weightChartData = {
+    labels: weightRecords.map((record) =>
+      new Date(record.recordDate).toLocaleDateString()
+    ),
+
+    datasets: [
+      {
+        label: "Weight (kg)",
+
+        data: weightRecords.map(
+          (record) => record.weight
+        ),
+
+        borderColor: "#db6027",
+
+        backgroundColor: "#ec8f48",
+
+        tension: 0.4,
+
+        fill: false,
+      },
+    ],
   };
 
   if (!data) {
@@ -74,11 +121,7 @@ export default function PetDashboard() {
       <div className={styles.healthCard}>
         <h2>Health Score</h2>
 
-        <div
-          className={
-            styles.healthScore
-          }
-        >
+        <div className={styles.healthScore}>
           {data.healthScore}%
         </div>
       </div>
@@ -86,76 +129,59 @@ export default function PetDashboard() {
       <div className={styles.statsGrid}>
         <div className={styles.card}>
           💉
-          <h3>
-            {
-              data.stats
-                .vaccinations
-            }
-          </h3>
+          <h3>{data.stats.vaccinations}</h3>
           <p>Vaccinations</p>
         </div>
 
         <div className={styles.card}>
-          ⚖
-          <h3>
-            {data.stats.weights}
-          </h3>
+          ⚖️
+          <h3>{data.stats.weights}</h3>
           <p>Weight Records</p>
         </div>
 
         <div className={styles.card}>
           💊
-          <h3>
-            {
-              data.stats
-                .medications
-            }
-          </h3>
+          <h3>{data.stats.medications}</h3>
           <p>Medications</p>
         </div>
 
         <div className={styles.card}>
           🏥
-          <h3>
-            {
-              data.stats
-                .vetVisits
-            }
-          </h3>
+          <h3>{data.stats.vetVisits}</h3>
           <p>Vet Visits</p>
         </div>
 
         <div className={styles.card}>
-          🍽
-          <h3>
-            {
-              data.stats
-                .feedings
-            }
-          </h3>
+          🍽️
+          <h3>{data.stats.feedings}</h3>
           <p>Feedings</p>
         </div>
 
         <div className={styles.card}>
           📋
-          <h3>
-            {
-              data.stats
-                .healthRecords
-            }
-          </h3>
+          <h3>{data.stats.healthRecords}</h3>
           <p>Health Records</p>
         </div>
       </div>
 
       <div className={styles.latestCard}>
-        <h2>
-          Latest Weight
-        </h2>
+        <h2>Latest Weight</h2>
 
         <h3>
-          {data.latestWeight} kg
+          {data.latestWeight || 0} kg
         </h3>
+      </div>
+
+      <div className={styles.chartCard}>
+        <h2>📈 Weight History</h2>
+
+        {weightRecords.length > 0 ? (
+          <Line data={weightChartData} />
+        ) : (
+          <p>
+            No weight records available.
+          </p>
+        )}
       </div>
     </div>
   );
