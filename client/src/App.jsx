@@ -24,6 +24,7 @@ import WeightTracker from "./pages/care/WeightTracker";
 import MedicationTracker from "./pages/care/MedicationTracker";
 import VetVisitTracker from "./pages/care/VetVisitTracker";
 import FeedingTracker from "./pages/care/FeedingTracker";
+import PetDashboard from "./pages/care/PetDashboard";
 
 import ServiceListings from "./pages/Services/ServiceListings";
 import BookingPage from "./pages/Services/BookingPage";
@@ -54,9 +55,8 @@ function App() {
         <Route path="/care/add" element={<AddPet />} />
         <Route path="/care/profile/:id" element={<PetProfile />} />
         <Route path="/care/health/:petId" element={<HealthRecords />} />
-
         <Route path="/care/reminders/:petId" element={<Reminders />} />
-
+        <Route path="/care/dashboard/:petId" element={<PetDashboard />} />
         <Route path="/care/activity/:petId" element={<ActivityTracker />} />
 
         <Route path="/care/gallery/:petId" element={<PetGallery />} />
@@ -66,6 +66,9 @@ function App() {
         <Route path="/care/vet-visits/:petId" element={<VetVisitTracker />} />
         <Route path="/care/feeding/:petId" element={<FeedingTracker />} />
         <Route path="/services" element={<ServiceListings />} />
+
+
+
         <Route path="/book/:id" element={<BookingPage />} />
 
         <Route path="/faq" element={<FAQ />} />
