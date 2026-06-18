@@ -149,6 +149,10 @@ export default function PetProfile() {
           <button onClick={() => navigate(`/care/vet-visits/${pet._id}`)}>
             🏥 Vet Visits
           </button>
+          
+          <button onClick={() => navigate(`/care/feeding/${pet._id}`)}>
+            🍽 Feeding Tracker
+          </button>
         </div>
       </div>
     </div>
